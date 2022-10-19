@@ -1,6 +1,6 @@
 # Backend TypeScript
 
-# 📖  App architecture 
+# 📖 App architecture 
 - src
     - WIP...
 
@@ -8,7 +8,7 @@
 # 💻 Built With  
 - [TypeScript](https://www.typescriptlang.org/)
 
-### Features
+# 🎉 Features
 
 - Minimal
 - TypeScript v4
