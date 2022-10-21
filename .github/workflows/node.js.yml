@@ -21,18 +21,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      working-directory: backend
     - name: Use Node.js ${{ matrix.node-version }}
+      working-directory: backend
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install dependencies
+      working-directory: backend
       run: npm ci
-      working-directory: backend
     - name: Make a build
+      working-directory: backend
       run: npm run build
-      working-directory: backend
     - name: Start the server
-      run: npm run start
       working-directory: backend
+      run: npm run start
