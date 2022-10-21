@@ -17,8 +17,6 @@ jobs:
         working-directory: ./backend/
     steps:
     - uses: actions/checkout@v3
-    - name: Navigat to backend dir
-      run: cd backend
     - name: Use Node.js 14
       uses: actions/setup-node@v3
       with:
