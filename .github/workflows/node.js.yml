@@ -11,17 +11,13 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     defaults:
       run:
         working-directory: ./backend/
-
     strategy:
        matrix:
        node-version: [14.x]
-
     steps:
     - uses: actions/checkout@v3
     - name: Navigat to backend dir
