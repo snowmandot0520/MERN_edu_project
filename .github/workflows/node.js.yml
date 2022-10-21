@@ -14,6 +14,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./backend/
     steps:
     - uses: actions/checkout@v3
     - name: Navigat to backend dir
@@ -23,9 +26,10 @@ jobs:
       with:
         node-version: 14
         cache: 'npm'
+        cache-dependency-path: './backend/yarn.lock'
     - name: Install dependencies
-      run: npm ci
+        run:  yarn
     - name: Make a build
-      run: npm run build
+        run:  yarn run build
     - name: Start the server
-      run : npm run start
+        run : yarn run start
