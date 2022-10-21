@@ -33,6 +33,3 @@ jobs:
     - name: Make a build
       working-directory: backend
       run: yarn run build
-    - name: Start the server
-      working-directory: backend
-      run: yarn run start
