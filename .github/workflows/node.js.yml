@@ -20,8 +20,10 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+    - name: Check out repository
+      uses: actions/checkout@v3
+    - name: Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
         heroku_email: ${{secrets.HEROKU_EMAIL}}
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
