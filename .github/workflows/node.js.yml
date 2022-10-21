@@ -25,11 +25,11 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'yarn'
         cache-dependency-path: backend/yarn.lock
     - name: Install dependencies
       working-directory: backend
-      run: yarn
+      run: yarn install --frozen-lockfile # optional, --immutable
     - name: Make a build
       working-directory: backend
       run: yarn run build
