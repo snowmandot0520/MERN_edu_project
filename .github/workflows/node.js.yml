@@ -29,10 +29,10 @@ jobs:
         cache-dependency-path: backend/yarn.lock
     - name: Install dependencies
       working-directory: backend
-      run: npm ci
+      run: yarn
     - name: Make a build
       working-directory: backend
-      run: npm run build
+      run: yarn run build
     - name: Start the server
       working-directory: backend
-      run: npm run start
+      run: yarn run start
