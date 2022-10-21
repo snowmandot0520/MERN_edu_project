@@ -11,17 +11,26 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
     steps:
     - uses: actions/checkout@v3
-      uses: actions/setup-node@v3
-      working-directory: ./backend/
+    - name: Use Node.js ${{ matrix.node-version }}
+      working-directory: backend
       with:
-        node-version: '14'
+        node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
+      working-directory: backend
     - name: Make a build
       run: npm run build
+      working-directory: backend
     - name: Start the server
       run: npm run start
+      working-directory: backend
