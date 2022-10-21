@@ -55,10 +55,16 @@ npm run prettier-watch
 
 # 📖 App architecture 
 - src
-    - WIP...
-
-
+    - constants
+    - db
+    - middlewares
+    - modules 
+        - users
+    - routes
+    - utils
 # 💻 Built With  
+- [NodeJS](https://nodejs.org/en/)
+- [ExpressJS](https://expressjs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
 # 🎉 Features
