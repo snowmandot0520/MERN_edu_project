@@ -9,11 +9,11 @@ declare var process : {
   }
 }
 
-dotenv.config({ path: __dirname + '/.env' });
+dotenv.config();
 console.log("process:", process.env)
 
 const app: Application = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT! || 8080;
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
