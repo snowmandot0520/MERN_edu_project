@@ -1,6 +1,12 @@
 import express, { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
-
+declare var process : {
+  env: {
+    NODE_ENV: 'development' | 'production';
+    PORT?: number;
+    PWD: string;
+  }
+}
 dotenv.config();
 console.log("process:", process)
 
