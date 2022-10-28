@@ -1,0 +1,8 @@
+{
+    "name": "mern-app",
+    "version": "0.1.0",
+    "scripts": {
+      "postinstall": "npm install --prefix backend && npm run build --prefix backend",
+      "start": "node backend/build/index.js"
+    }
+  }
