@@ -49,6 +49,7 @@
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
     "typeRoots": ["node_modules/@types"],
     "types": [
+      "node",
       "jest"
     ] /* Type declaration files to be included in compilation. */,
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
