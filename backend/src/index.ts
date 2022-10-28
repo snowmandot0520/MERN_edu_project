@@ -1,5 +1,7 @@
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
+
 import express, { Application, Request, Response } from 'express';
-import * as dotenv from "dotenv";
 
 declare var process : {
   env: {
