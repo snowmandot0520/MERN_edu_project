@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/asif-simform/MERN-Stack",
   "scripts": {
-    "postinstall": "typesync",
+    "typesync": "typesync",
     "dev": "nodemon src/index.ts",
     "build": "rm -rf ./build && tsc",
     "start": "node build/index.js",
