@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
+
 declare var process : {
   env: {
     NODE_ENV: 'development' | 'production';
@@ -7,8 +8,9 @@ declare var process : {
     PWD: string;
   }
 }
+
 dotenv.config();
-console.log("process:", process)
+console.log("process:", process.env)
 
 const app: Application = express();
 const port = process.env.PORT || 8080;
