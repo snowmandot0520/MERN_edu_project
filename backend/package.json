@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "MERN App Backend",
-  "main": "src/index.ts",
+  "main": "build/index.js",
   "private": false,
   "author": "Asif Vora <asifvora0@gmail.com>",
   "license": "MIT",
