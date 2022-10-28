@@ -15,10 +15,10 @@
   },
   "homepage": "https://github.com/asif-simform/MERN-Stack",
   "scripts": {
-    "tsc": "tsc",
+    "tsc": "./node_modules/typescript/bin/tsc",
     "typesync": "typesync",
     "dev": "nodemon src/index.ts",
-    "build": "rm -rf ./build && tsc",
+    "build": "rm -rf ./build && npm run tsc",
     "start": "node build/index.js",
     "lint": "eslint . --ext .ts",
     "prettier-format": "run-script-os",
