@@ -1,2 +1,2 @@
-web: cd client && npm start
+web: cd backend && npm start
 worker: cd backend && npm start
