@@ -6,10 +6,10 @@ console.log("process:", process.env)
 import express, { Application, Request, Response } from 'express';
 
 const app: Application = express();
-const port = process.env.PORT! || 8080;
+const port = process.env.PORT || 8080;
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
+  res.send('Express + TypeScript Server 007');
 });
 
 app.listen(port, () => {
