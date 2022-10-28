@@ -1,5 +1,5 @@
 import express, { Application, Request, Response } from 'express';
-import dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 
 declare var process : {
   env: {
@@ -9,7 +9,7 @@ declare var process : {
   }
 }
 
-dotenv.config();
+dotenv.config({ path: __dirname + '/.env' });
 console.log("process:", process.env)
 
 const app: Application = express();
