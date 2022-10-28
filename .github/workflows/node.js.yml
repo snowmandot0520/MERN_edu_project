@@ -29,6 +29,7 @@ jobs:
         cache: 'yarn'
         cache-dependency-path: backend/yarn.lock
     - name: Deploy to Heroku
+      working-directory: backend
       uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
       with:
         heroku_email: ${{secrets.HEROKU_EMAIL}}
