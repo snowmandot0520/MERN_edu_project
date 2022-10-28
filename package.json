@@ -4,6 +4,6 @@
     "scripts": {
       "postinstall": "npm install --prefix backend",
       "build": "npm run build --prefix backend",
-      "start": "node ./backend/build/index.js"
+      "start": "npm run start --prefix backend"
     }
   }
