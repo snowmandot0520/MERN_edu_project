@@ -34,6 +34,9 @@ jobs:
     - name: Make a build
       working-directory: backend
       run: yarn run build
+    - name: Start App
+      working-directory: backend
+      run: yarn run start
     # - name: Deploy to Heroku
     #   uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
     #   with:
