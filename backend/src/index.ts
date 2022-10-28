@@ -5,7 +5,8 @@ dotenv.config();
 
 const app: Application = express();
 
-const port = process.env.PORT || 8080;
+const port = 8080;
+// const port = process.env.PORT || 8080;
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server');
