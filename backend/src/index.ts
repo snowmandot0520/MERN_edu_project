@@ -1,10 +1,9 @@
-import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+import * as dotenv from 'dotenv';
 dotenv.config()
 
-import express, { Application, Request, Response } from 'express';
-
-dotenv.config();
 console.log("process:", process.env)
+
+import express, { Application, Request, Response } from 'express';
 
 const app: Application = express();
 const port = process.env.PORT! || 8080;
