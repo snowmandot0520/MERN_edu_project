@@ -1,7 +1,6 @@
 import * as dotenv from 'dotenv';
-dotenv.config()
 
-console.log("process:", process.env)
+dotenv.config()
 
 import express, { Application, Request, Response } from 'express';
 

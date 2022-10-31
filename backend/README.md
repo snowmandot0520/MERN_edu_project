@@ -1,7 +1,10 @@
 # Node Express Server with TypeScript
 
-For help getting started with Node Express, view online
-[documentation](https://expressjs.com/).
+For help getting started with Node, Express and MongoDB view online documentation
+
+- [Node.js](https://nodejs.org/en/docs/)
+- [Express.js](https://expressjs.com/)
+- [MongoDB](https://docs.mongodb.com/)
 
 #### 1. [Setup Node](https://nodejs.org/en/)
 
