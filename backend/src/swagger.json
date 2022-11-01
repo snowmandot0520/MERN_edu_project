@@ -16,66 +16,73 @@
         "https"
     ],
     "consumes": [
-        "application/json"
+        "application/json",
+        "multipart/form-data",
+        "application/x-www-form-urlencoded"
     ],
     "produces": [
-        "application/json"
+        "application/json",
+        "multipart/form-data",
+        "application/x-www-form-urlencoded"
     ],
+    "host": "localhost:6060",
     "paths": {
         "/users/singup": {
             "post": {
                 "tags": [
                     "Users"
                 ],
-                "summary": "Singup new user in system",
+                "description": "Create new user in system",
                 "parameters": [
                     {
-                        "name": "firstName",
-                        "in": "formData",
-                        "description": "First Name",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "lastName",
-                        "in": "formData",
-                        "description": "Last Name",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "email",
-                        "in": "formData",
-                        "description": "Email",
-                        "type": "string",
-                        "required": true
-                    },
-                    {
-                        "name": "password",
-                        "in": "formData",
-                        "description": "Password",
-                        "type": "string",
-                        "required": true
+                        "name": "user",
+                        "in": "body",
+                        "description": "User that we want to create",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
                     }
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "responses": {}
+                "responses": {
+                    "200": {
+                        "description": "New user is created",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
             }
         }
     },
-    "securityDefinitions": {
-        "token": {
-            "type": "apiKey",
-            "name": "token",
-            "description": "API key to authorize requests",
-            "in": "header"
+    "definitions": {
+        "User": {
+            "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "password"
+            ],
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "required": true
+                },
+                "lastName": {
+                    "type": "string",
+                    "required": true
+                },
+                "email": {
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "type": "string",
+                    "required": true
+                }
+            }
         }
-    },
-    "security": [
-        {
-          "token": []
-        }
-    ]
+    }
 }
