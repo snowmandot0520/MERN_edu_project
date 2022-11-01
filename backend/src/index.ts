@@ -4,6 +4,9 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 
+// custom modules
+import allRoutes from './routes';
+
 const app: Application = express();
 
 app.use(express.json());
@@ -17,6 +20,8 @@ app.get('/', (req: Request, res: Response) => {
     message: 'Welcome to Node API\'s by 007',
   });
 });
+
+app.use(allRoutes);
 
 app.listen(PORT, () => {
     console.log(`⚡️[server]: Server is running at ${IS_DEVELOPMENT ? 'http://localhost:' : ''}${PORT}`);
