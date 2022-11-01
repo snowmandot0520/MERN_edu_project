@@ -77,7 +77,7 @@ typings/
 
 # build / generate output
 dist
-build
+build/
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
