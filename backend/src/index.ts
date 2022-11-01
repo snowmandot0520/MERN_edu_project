@@ -1,15 +1,10 @@
-import * as dotenv from 'dotenv';
-
-dotenv.config()
+import { PORT, IS_DEVELOPMENT } from './config/env';
 
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 
 const app: Application = express();
-
-const port = process.env.PORT || 8080;
-const isDevelopment = process.env.NODE_ENV === 'development';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,6 +18,6 @@ app.get('/', (req: Request, res: Response) => {
   });
 });
 
-app.listen(port, () => {
-    console.log(`⚡️[server]: Server is running at ${isDevelopment ? 'http://localhost:' : ''}${port}`);
+app.listen(PORT, () => {
+    console.log(`⚡️[server]: Server is running at ${IS_DEVELOPMENT ? 'http://localhost:' : ''}${PORT}`);
 });
