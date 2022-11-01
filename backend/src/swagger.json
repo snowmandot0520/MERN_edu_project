@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Node.js API"
+    },
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "Users",
+            "description": "API for users in the system"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/users/singup": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Singup new user in system",
+                "parameters": [
+                    {
+                        "name": "firstName",
+                        "in": "formData",
+                        "description": "First Name",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "lastName",
+                        "in": "formData",
+                        "description": "Last Name",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Email",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Password",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "securityDefinitions": {
+        "token": {
+            "type": "apiKey",
+            "name": "token",
+            "description": "API key to authorize requests",
+            "in": "header"
+        }
+    },
+    "security": [
+        {
+          "token": []
+        }
+    ]
+}

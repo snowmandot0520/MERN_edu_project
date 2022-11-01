@@ -11,13 +11,14 @@ import { Response } from 'express';
  * @param {number} statusCode the http status code
  * @param {array | object } data the data you want to send with the response
  * @param {string} message the message you want to send for success/failure
+ * 
+ * @returns {object} res the res object
  */
-
 export const sendResponse = (
   res: Response,
   statusCode: number,
   data = {},
-  message: string,
+  message: string | any,
 ) => {
   if (typeof statusCode !== 'number') {
     throw new Error('statusCode should be a number');
