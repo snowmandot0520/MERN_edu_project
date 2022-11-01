@@ -25,7 +25,6 @@
         "multipart/form-data",
         "application/x-www-form-urlencoded"
     ],
-    "host": "localhost:6060",
     "paths": {
         "/users/singup": {
             "post": {
