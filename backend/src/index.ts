@@ -12,6 +12,8 @@ import swaggerDocument from './swagger.json'
 // custom modules
 import allRoutes from './routes';
 
+import './db'
+
 const app: Application = express();
 
 // parse application/json
