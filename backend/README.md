@@ -56,6 +56,9 @@ npm run prettier-format
 npm run prettier-watch
 ```
 
+# 👨‍💻 Demo
+Check out the API's : https://mern-app-007.herokuapp.com/
+
 # 📖 App architecture 
 - src
     - constants
