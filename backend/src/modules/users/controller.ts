@@ -9,6 +9,7 @@ import {
   extractErrors,
 } from '../../utils/handle-custom-errors';
 
+
 export const createNewUser = async (req: Request, res: Response) => {
   try {
     const errors = validationResult(req);
@@ -25,7 +26,6 @@ export const createNewUser = async (req: Request, res: Response) => {
       lastName,
       password,
     });
-
     return sendResponse(res, 201, { ...data }, reponseMessages.genericSuccess);
   } catch (err) {
     return handleCustomError(res, err);
