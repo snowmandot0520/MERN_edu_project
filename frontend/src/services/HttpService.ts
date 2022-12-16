@@ -1,7 +1,6 @@
 import axios, { Method } from 'axios';
+import { API_URL } from '../config/env'
 // import { errorToast } from '../utils/Toast'
-
-const BASE_URL = process.env.REACT_APP_API_URL;
 
 const codes = {
   UNAUTHORIZED: 401,
@@ -36,7 +35,7 @@ axios.interceptors.response.use(
 );
 
 const getFullUrl = (url: string) => {
-  return `${BASE_URL}${url}`;
+  return `${API_URL}${url}`;
 };
 
 export type Irequest = {
