@@ -1,5 +1,4 @@
 import {
-  Anchor,
   Button,
   Container,
   Paper,
@@ -14,21 +13,31 @@ import * as yup from "yup";
 
 const SignUpForm = () => {
   const validationSchema = yup.object().shape({
+    firstName: yup.string().min(3).required(),
+    lastName: yup.string().min(3).required(),
     email: yup.string().email().required(),
-    username: yup.string().min(3).required(),
     password: yup.string().min(8).required(),
+    confirmPassword: yup
+      .string()
+      .min(8)
+      .oneOf([yup.ref("password"), null], "Passwords must match")
+      .required(),
   });
 
   const form = useForm({
     initialValues: {
+      firstName: "",
+      lastName: "",
       email: "",
-      username: "",
       password: "",
+      confirmPassword: "",
     },
     validate: yupResolver(validationSchema),
   });
 
-  const signUp = (email: string, username: string, password: string) => {};
+  const signUp = (values: any) => {
+    console.log("signUp", values);
+  };
 
   return (
     <Container size={420} my={40}>
@@ -42,21 +51,21 @@ const SignUpForm = () => {
         Sign up
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-          You have an account already?{" "}
-          <NavLink to='/'>
-            Sign in
-          </NavLink>
-        </Text>
+        You have an account already? <NavLink to="/">Sign in</NavLink>
+      </Text>
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form
-          onSubmit={form.onSubmit((values) =>
-            signUp(values.email, values.username, values.password)
-          )}
-        >
+        <form onSubmit={form.onSubmit((values) => signUp(values))}>
           <TextInput
-            label="Username"
-            placeholder="john.doe"
-            {...form.getInputProps("username")}
+            label="firstName"
+            placeholder="john"
+            mt="md"
+            {...form.getInputProps("firstName")}
+          />
+          <TextInput
+            label="lastName"
+            placeholder="Doe"
+            mt="md"
+            {...form.getInputProps("lastName")}
           />
           <TextInput
             label="Email"
@@ -69,6 +78,12 @@ const SignUpForm = () => {
             placeholder="Your password"
             mt="md"
             {...form.getInputProps("password")}
+          />
+          <PasswordInput
+            label="Confirm Password"
+            placeholder="Your confirm password"
+            mt="md"
+            {...form.getInputProps("confirmPassword")}
           />
           <Button fullWidth mt="xl" type="submit">
             Let's get started
