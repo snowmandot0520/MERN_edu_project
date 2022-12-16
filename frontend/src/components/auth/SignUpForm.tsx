@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Container,
@@ -10,8 +11,13 @@ import {
 import { useForm, yupResolver } from "@mantine/form";
 import { NavLink } from "react-router-dom";
 import * as yup from "yup";
+import { POST } from "../../services/HttpService";
+import { getApiErrorMessage } from "../../utils/commonFunction";
+import toast from "../../utils/Toast";
 
 const SignUpForm = () => {
+  const [isLoading, setLoading] = useState(false);
+
   const validationSchema = yup.object().shape({
     firstName: yup.string().min(3).required(),
     lastName: yup.string().min(3).required(),
@@ -20,23 +26,41 @@ const SignUpForm = () => {
     confirmPassword: yup
       .string()
       .min(8)
-      .oneOf([yup.ref("password"), null], "Passwords must match")
+      .oneOf([yup.ref("password")], "Passwords must match")
       .required(),
   });
 
   const form = useForm({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      firstName: "asif",
+      lastName: "vora",
+      email: "asif@gmail.com",
+      password: "12345678",
+      confirmPassword: "12345678",
     },
     validate: yupResolver(validationSchema),
   });
 
-  const signUp = (values: any) => {
-    console.log("signUp", values);
+  const signUp = async (values: any) => {
+    setLoading(true);
+    const { firstName, lastName, email, password } = values;
+    try {
+      await POST({
+        subUrl: "/users/singup",
+        data: {
+          firstName,
+          lastName,
+          email,
+          password,
+        },
+      });
+      toast.success("Registration successful");
+    } catch (error) {
+      const message = getApiErrorMessage(error);
+      message && toast.error(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -85,7 +109,7 @@ const SignUpForm = () => {
             mt="md"
             {...form.getInputProps("confirmPassword")}
           />
-          <Button fullWidth mt="xl" type="submit">
+          <Button fullWidth mt="xl" type="submit" disabled={isLoading}>
             Let's get started
           </Button>
         </form>

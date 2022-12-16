@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
 import { FallbackProvider } from "react-current-page-fallback";
 import { Routes } from "./routes";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -11,11 +12,13 @@ export const App: React.FC = () => {
     <ErrorBoundary>
       <MantineProvider withGlobalStyles withNormalizeCSS>
         <GlobalStyle />
-        <BrowserRouter>
-          <FallbackProvider>
-            <Routes />
-          </FallbackProvider>
-        </BrowserRouter>
+        <NotificationsProvider position='top-right'>
+          <BrowserRouter>
+            <FallbackProvider>
+              <Routes />
+            </FallbackProvider>
+          </BrowserRouter>
+        </NotificationsProvider>
       </MantineProvider>
     </ErrorBoundary>
   );
