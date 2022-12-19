@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Container,
@@ -10,8 +11,13 @@ import {
 import { useForm, yupResolver } from "@mantine/form";
 import { NavLink } from "react-router-dom";
 import * as yup from "yup";
+import { POST } from "../../services/HttpService";
+import { getApiErrorMessage } from "../../utils/commonFunction";
+import toast from "../../utils/Toast";
 
 const SignInForm = () => {
+  const [isLoading, setLoading] = useState(false);
+
   const validationSchema = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().min(8).required(),
@@ -25,7 +31,25 @@ const SignInForm = () => {
     validate: yupResolver(validationSchema),
   });
 
-  const signIn = (values: any) => {};
+  const signIn = async (values: any) => {
+    setLoading(true);
+    const { email, password } = values;
+    try {
+      const response = await POST({
+        subUrl: "/users/signin",
+        data: {
+          email,
+          password,
+        },
+      });
+      toast.success("Login successful");
+    } catch (error) {
+      const message = getApiErrorMessage(error);
+      message && toast.error(message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Container size={420} my={40}>
@@ -55,7 +79,7 @@ const SignInForm = () => {
             mt="md"
             {...form.getInputProps("password")}
           />
-          <Button fullWidth mt="xl" type="submit">
+          <Button fullWidth mt="xl" type="submit" disabled={isLoading}>
             Sign in
           </Button>
         </form>

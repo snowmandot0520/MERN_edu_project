@@ -46,7 +46,7 @@ const SignUpForm = () => {
     const { firstName, lastName, email, password } = values;
     try {
       await POST({
-        subUrl: "/users/singup",
+        subUrl: "/users/signup",
         data: {
           firstName,
           lastName,

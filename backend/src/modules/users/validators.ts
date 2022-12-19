@@ -17,4 +17,13 @@ const validateCreateUserRequest = () => {
   ];
 };
 
-export { validateCreateUserRequest };
+const validateSignInUserRequest = () => {
+  return [
+    body('email', 'Email is required/invalid').isEmail(),
+    body('password', 'Password is required')
+      .isLength({ min: 6 })
+      .withMessage('Password must be at least 6 chars long'),
+  ];
+};
+
+export { validateCreateUserRequest, validateSignInUserRequest };

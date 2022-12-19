@@ -26,7 +26,7 @@
         "application/x-www-form-urlencoded"
     ],
     "paths": {
-        "/users/singup": {
+        "/users/signup": {
             "post": {
                 "tags": [
                     "Users"
@@ -53,6 +53,53 @@
                         }
                     }
                 }
+            }
+        },
+        "/users/signin": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "Signin user in system",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "User that we want to signin",
+                        "schema": {
+                            "$ref": "#/definitions/SignInUser"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Signin successfully",
+                        "schema": {
+                            "$ref": "#/definitions/SignInUser"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{userId}": {
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of user that we want to find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "summary": "Get user by given ID",
+                "tags": [
+                    "Users"
+                ],
+                "responses": {}
             }
         }
     },
@@ -82,6 +129,35 @@
                     "required": true
                 }
             }
+        },
+        "SignInUser": {
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "required": true
+                },
+                "password": {
+                    "type": "string",
+                    "required": true
+                }
+            }
         }
-    }
+    },
+    "securityDefinitions": {
+        "token": {
+            "type": "apiKey",
+            "name": "token",
+            "description": "API key to authorize requests",
+            "in": "header"
+        }
+    },
+    "security": [
+        {
+          "token": []
+        }
+    ]
 }
