@@ -32,11 +32,11 @@ const SignUpForm = () => {
 
   const form = useForm({
     initialValues: {
-      firstName: "asif",
-      lastName: "vora",
-      email: "asif@gmail.com",
-      password: "12345678",
-      confirmPassword: "12345678",
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
     validate: yupResolver(validationSchema),
   });
