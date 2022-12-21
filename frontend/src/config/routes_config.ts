@@ -9,7 +9,8 @@ export type IRoutesConfig = {
     path_string: (params?: any) => string;
     exact: boolean;
     isPrivate: boolean;
-    component?: React.ComponentType<any> | JSX.Element | React.ElementType<any> | React.FunctionComponent | React.FC;
+    isStatic: boolean;
+    component?: React.ElementType | React.ElementType<any>| React.JSXElementConstructor<any> | React.FunctionComponent<any> | React.Component<any, any>;
   };
 };
 /**
@@ -31,6 +32,7 @@ export const routes: IRoutesConfig = {
     },
     exact: true,
     isPrivate: false,
+    isStatic: false,
     component: undefined
   },
   signUp: {
@@ -43,6 +45,7 @@ export const routes: IRoutesConfig = {
     },
     exact: true,
     isPrivate: false,
+    isStatic: false,
     component: undefined
   },
   home: {
@@ -54,7 +57,8 @@ export const routes: IRoutesConfig = {
       return `/home`;
     },
     exact: true,
-    isPrivate: false,
+    isPrivate: true,
+    isStatic: false,
     component: undefined
   },
   notFound: {
@@ -67,6 +71,7 @@ export const routes: IRoutesConfig = {
     },
     exact: false,
     isPrivate: false,
+    isStatic: true,
     component: undefined
   }
 };

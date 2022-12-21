@@ -9,14 +9,17 @@ import {
   Text,
 } from "@mantine/core";
 import { useForm, yupResolver } from "@mantine/form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { POST } from "../../services/HttpService";
 import { getApiErrorMessage } from "../../utils/commonFunction";
 import toast from "../../utils/Toast";
+import { routes } from "../../config/routes_config";
+import Storage from "../../services/Storage";
 
 const SignInForm = () => {
   const [isLoading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const validationSchema = yup.object().shape({
     email: yup.string().email().required(),
@@ -42,7 +45,10 @@ const SignInForm = () => {
           password,
         },
       });
+      console.log("response",response.data?.data?.token)
+      Storage.setItem('token', response.data?.data?.token)
       toast.success("Login successful");
+      navigate(routes.home.path_string());
     } catch (error) {
       const message = getApiErrorMessage(error);
       message && toast.error(message);
