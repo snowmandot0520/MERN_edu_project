@@ -1,19 +1,16 @@
 {
     "version": 2,
-    "name": "MERN-App",
-    "buildCommand": "yarn build",
-    "devCommand": "yarn dev",
-    "outputDirectory": "build",
     "builds": [
         {
-            "src": "./build/index.js",
-            "use": "@vercel/node"
+            "src": "build/index.js",
+            "use": "@vercel/node",
+            "config": { "includeFiles": ["build/**"] }
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "./build/index.js"
+            "dest": "build/index.js"
         }
     ]
 }
