@@ -57,7 +57,7 @@ npm run prettier-watch
 ```
 
 # 👨‍💻 Demo
-Check out the API's : https://mern-app-007.herokuapp.com/
+Check out the API's : https://mern-stack-cyan.vercel.app
 
 # 📖 App architecture 
 - src
