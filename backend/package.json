@@ -19,6 +19,7 @@
     "dev": "NODE_ENV=development nodemon src/index.ts",
     "build": "rm -rf ./dist && tsc",
     "start": "NODE_ENV=production node dist/index.js",
+    "add-build": "git add dist",
     "lint": "eslint . --ext .ts",
     "prettier-format": "run-script-os",
     "prettier-format:win32": "prettier --config .prettierrc \"./src/**/*.ts\" --write",
@@ -36,6 +37,10 @@
       "pre-commit": "npm run test && npm run prettier-format && npm run lint"
     }
   },
+  "pre-commit": [
+    "build",
+    "add-build"
+  ],
   "keywords": [
     "node",
     "MERN"
