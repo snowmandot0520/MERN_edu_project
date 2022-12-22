@@ -9,12 +9,13 @@ export const AppRoutes: React.FC = () => {
     <Routes>
       {Object.keys(routes).map((key) => {
         const {
-          component: Component,
+          component,
           path,
           id,
           isPrivate,
           isStatic,
-        } = routes[key];
+        }  = routes[key];
+        const Component = component as React.ElementType;
 
         if (isStatic) {
           return <Route key={id} path={path} element={<Component />} />;

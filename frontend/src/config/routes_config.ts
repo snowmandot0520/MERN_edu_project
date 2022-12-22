@@ -10,7 +10,7 @@ export type IRoutesConfig = {
     exact: boolean;
     isPrivate: boolean;
     isStatic: boolean;
-    component?: React.ElementType | React.ElementType<any>| React.JSXElementConstructor<any> | React.FunctionComponent<any> | React.Component<any, any>;
+    component?: React.ElementType | React.ElementType<any>| React.JSXElementConstructor<any> | React.FunctionComponent<any> | React.Component<any, any> | undefined;
   };
 };
 /**
