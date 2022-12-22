@@ -3,8 +3,8 @@
     "name": "MERN-App",
     "builds": [
         {
-            "src": "./src/index.ts",
-            "use": "@vercel/node"
+            "src": "package.json",
+            "use": "vercel-sapper"
         }
     ],
     "routes": [
