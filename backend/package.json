@@ -17,7 +17,6 @@
   "scripts": {
     "typesync": "typesync",
     "dev": "NODE_ENV=development nodemon src/index.ts",
-    "build": "rm -rf ./build && tsc",
     "start": "NODE_ENV=production node build/index.js",
     "lint": "eslint . --ext .ts",
     "prettier-format": "run-script-os",
