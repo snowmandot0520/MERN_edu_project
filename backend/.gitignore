@@ -76,7 +76,6 @@ typings/
 .cache
 
 # build / generate output
-dist/
 build/
 
 # Stores VSCode versions used for testing VSCode extensions
