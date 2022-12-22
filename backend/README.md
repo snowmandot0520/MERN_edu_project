@@ -26,7 +26,7 @@ $ npm install
 npm run dev
 ```
 
-#### 5. Starts the app in production by first building the project with `npm run build`, and then executing the compiled JavaScript at `build/index.js`.
+#### 5. Starts the app in production by first building the project with `npm run build`, and then executing the compiled JavaScript at `dist/index.js`.
 ```bash
 npm run start
 ```

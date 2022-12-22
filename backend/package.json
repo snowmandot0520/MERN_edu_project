@@ -17,8 +17,8 @@
   "scripts": {
     "typesync": "typesync",
     "dev": "NODE_ENV=development nodemon src/index.ts",
-    "build": "rm -rf ./build && tsc",
-    "start": "NODE_ENV=production node build/index.js",
+    "build": "rm -rf ./dist && tsc",
+    "start": "NODE_ENV=production node dist/index.js",
     "lint": "eslint . --ext .ts",
     "prettier-format": "run-script-os",
     "prettier-format:win32": "prettier --config .prettierrc \"./src/**/*.ts\" --write",
@@ -78,8 +78,5 @@
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "typesync": "^0.9.2"
-  },
-  "engines": {
-    "node": "14.x"
   }
 }
