@@ -1,8 +1,7 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.0.1",
   "scripts": {
     "postinstall": "typesync",
     "dev": "vite",

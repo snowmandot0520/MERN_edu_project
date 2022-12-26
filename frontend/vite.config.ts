@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,14 +7,17 @@ export default defineConfig({
   //   minify: true,
   //   sourcemap: true,
   //   rollupOptions: {
-  //     external: [],
+  //     external: ["react", "react-dom"],
   //     output: {
-  //       globals: { },
+  //       globals: {
+  //         react: "React",
+  //         "react-dom": "ReactDOM",
+  //       },
   //     },
   //   },
   // },
   optimizeDeps: {
-    include: ['react', 'react-dom/client']
+    include: ["react", "react-dom/client"],
   },
   plugins: [react()],
-})
+});
