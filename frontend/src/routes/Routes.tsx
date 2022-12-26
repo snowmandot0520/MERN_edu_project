@@ -1,10 +1,10 @@
-import React from "react";
+import { FC, ElementType } from "react";
 import { routes } from "../config/routes";
 import { Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 
-export const AppRoutes: React.FC = () => {
+export const AppRoutes: FC = () => {
   return (
     <Routes>
       {Object.keys(routes).map((key) => {
@@ -15,7 +15,7 @@ export const AppRoutes: React.FC = () => {
           isPrivate,
           isStatic,
         }  = routes[key];
-        const Component = component as React.ElementType;
+        const Component = component as ElementType;
 
         if (isStatic) {
           return <Route key={id} path={path} element={<Component />} />;

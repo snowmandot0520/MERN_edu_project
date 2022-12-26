@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import {
   createStyles,
   Title,
@@ -35,7 +35,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const ErrorNotFound : React.FC = () => {
+const ErrorNotFound : FC = () => {
   const { classes } = useStyles();
 
   return (

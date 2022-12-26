@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, PropsWithChildren } from "react";
 import { Navigate } from "react-router-dom";
 
 import { routes } from "./../config/routes_config";
@@ -8,7 +8,7 @@ interface IProps {
   children: any;
 }
 
-export const PrivateRoute: React.FC<React.PropsWithChildren<IProps>> = ({
+export const PrivateRoute: FC<PropsWithChildren<IProps>> = ({
   children,
 }) => {
   const auth = useAuth();
