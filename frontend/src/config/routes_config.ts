@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ElementType } from 'react';
 
 export type IRoutesConfig = {
   [key: string]: {
@@ -10,7 +10,7 @@ export type IRoutesConfig = {
     exact: boolean;
     isPrivate: boolean;
     isStatic: boolean;
-    component?: React.ElementType | React.ElementType<any>| React.JSXElementConstructor<any> | React.FunctionComponent<any> | React.Component<any, any> | undefined;
+    component?: ElementType | ElementType<any> | undefined;
   };
 };
 /**
