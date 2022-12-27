@@ -4,6 +4,10 @@
     "useDefineForClassFields": true,
     "rootDir": "src",
     "baseUrl": "./",
+    "paths": {
+      "react": ["node_modules/react"],
+      "react-dom": ["node_modules/react-dom"],
+    },
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
