@@ -14,10 +14,9 @@ export const App: FC = () => {
         <GlobalStyle />
         <NotificationsProvider position='top-right'>
           <BrowserRouter>
-            <FallbackProvider>
-              {/* <Routes /> */}
-              <h1>Asif</h1>
-            </FallbackProvider>
+            {/* <FallbackProvider> */}
+              <Routes />
+            {/* </FallbackProvider> */}
           </BrowserRouter>
         </NotificationsProvider>
       </MantineProvider>
