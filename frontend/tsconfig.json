@@ -3,6 +3,11 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "rootDir": "src",
+    "baseUrl": "src",
+    // "paths": {
+    //   "react": ["node_modules/@types/react"],
+    //   "react-dom": ["node_modules/@types/react-dom"],
+    // },
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
