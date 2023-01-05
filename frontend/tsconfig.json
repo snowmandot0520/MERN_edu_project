@@ -3,7 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "rootDir": "src",
-    "baseUrl": "src",
+    "baseUrl": "./",
     // "paths": {
     //   "react": ["node_modules/@types/react"],
     //   "react-dom": ["node_modules/@types/react-dom"],
