@@ -7,27 +7,22 @@ import { Routes } from "./routes";
 import ErrorBoundary from "./components/ErrorBoundary";
 import GlobalStyle from "./styles/global.style";
 
-// export const App: FC = () => {
-//   return (
-//     <ErrorBoundary>
-//       <MantineProvider withGlobalStyles withNormalizeCSS>
-//         <GlobalStyle />
-//         <NotificationsProvider position='top-right'>
-//           <BrowserRouter>
-//             <FallbackProvider>
-//               <Routes />
-//             </FallbackProvider>
-//           </BrowserRouter>
-//         </NotificationsProvider>
-//       </MantineProvider>
-//     </ErrorBoundary>
-//   );
-// };
-
 export const App: FC = () => {
   return (
     <ErrorBoundary>
-     <h1>Asif vora</h1>
-    </ErrorBoundary>  );
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        <GlobalStyle />
+        <NotificationsProvider position='top-right'>
+          <BrowserRouter>
+          <h1>Asif</h1>
+            {/* <FallbackProvider>
+              <Routes />
+            </FallbackProvider> */}
+          </BrowserRouter>
+        </NotificationsProvider>
+      </MantineProvider>
+    </ErrorBoundary>
+  );
 };
+
 export default App;
