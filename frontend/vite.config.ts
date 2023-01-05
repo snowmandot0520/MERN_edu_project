@@ -23,7 +23,7 @@ export default defineConfig({
   // optimizeDeps: {
   //   include: ["react", "react-dom/client"],
   // },
-  // plugins: [
+  plugins: [
   //   resolve({
   //     preferBuiltins: true,
   //     browser: true,
