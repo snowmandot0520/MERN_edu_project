@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-// import react from '@vitejs/plugin-react'
+// import react from "@vitejs/plugin-react-swc";
+import react from '@vitejs/plugin-react'
 // import commonjs from "@originjs/vite-plugin-commonjs";
 // import commonjs from "@rollup/plugin-commonjs";
 // import resolve from "@rollup/plugin-node-resolve";
