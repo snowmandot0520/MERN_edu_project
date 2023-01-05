@@ -14,10 +14,10 @@ export const App: FC = () => {
         <GlobalStyle />
         <NotificationsProvider position='top-right'>
           <BrowserRouter>
-          <h1>Asif</h1>
-            {/* <FallbackProvider>
-              <Routes />
-            </FallbackProvider> */}
+            <FallbackProvider>
+              {/* <Routes /> */}
+              <h1>Asif</h1>
+            </FallbackProvider>
           </BrowserRouter>
         </NotificationsProvider>
       </MantineProvider>
