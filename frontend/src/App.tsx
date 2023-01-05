@@ -26,7 +26,8 @@ import GlobalStyle from "./styles/global.style";
 
 export const App: FC = () => {
   return (
-    <h1>Asif vora</h1>
-  );
+    <ErrorBoundary>
+     <h1>Asif vora</h1>
+    </ErrorBoundary>  );
 };
 export default App;
