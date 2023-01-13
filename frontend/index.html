@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MERN App 1</title>
+    <title>MERN App</title>
   </head>
   <body>
     <div id="root"></div>
-    <div id="test"></div>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script type="importmap">
       {
         "imports": {
-          "react": "https://unpkg.com/react@18.2.0/index.js",
-          "react-dom": "https://unpkg.com/react-dom@18.2.0/index.js",
+          "react": "https://ga.jspm.io/npm:react@18.0.0-rc.0/index.js"
+        },
+        "scopes": {
+          "https://ga.jspm.io/npm:react@18.0.0-rc.0/": {
+            "object-assign": "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
+          }
         }
       }
-    </script>
+      </script>
     <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
