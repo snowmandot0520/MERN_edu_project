@@ -1700,10 +1700,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-current-page-fallback@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/react-current-page-fallback/-/react-current-page-fallback-1.0.5.tgz#1ac0540a159b3f107e256efb8c41b20e680b3209"
-  integrity sha512-070MfkXbt2syHrBFHGIwbKRw23q7kz1mcc3ikdt/HOy3HRbcZ+DvKpKbOXYCOadq4pbtllzlZgIdzRDRZPPjoA==
+react-current-page-fallback@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-current-page-fallback/-/react-current-page-fallback-1.0.7.tgz#90a3a260ed333cfe58f407715ae1e7247b15cdcb"
+  integrity sha512-X5t9hFRpo96cS0f/Sy+/iB17PEtQcDU2fFijg8wCRAhP3bi3mGrZwSvK4YlQtfm6u9PNgMw3/EefoLYxM/3aWQ==
 
 react-dom@^18.2.0:
   version "18.2.0"
