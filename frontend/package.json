@@ -24,6 +24,7 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.4.5",
     "react-toastify": "^9.1.1",
+    "react-topbar-progress-indicator": "^4.1.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {

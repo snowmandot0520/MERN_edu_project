@@ -7,7 +7,7 @@ import {
   Group,
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
-import { FallbackPageWrapper } from "react-current-page-fallback";
+import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
 
 const useStyles = createStyles((theme) => ({
   root: {

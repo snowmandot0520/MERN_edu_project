@@ -2,7 +2,7 @@ import { FC } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
-import { FallbackProvider } from "react-current-page-fallback";
+import { FallbackProvider } from "./providers/FallbackProvider";
 import { Routes } from "./routes";
 import ErrorBoundary from "./components/ErrorBoundary";
 import GlobalStyle from "./styles/global.style";

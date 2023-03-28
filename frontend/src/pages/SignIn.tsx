@@ -1,5 +1,5 @@
 import SignInForm from "../components/auth/SignInForm";
-import { FallbackPageWrapper } from "react-current-page-fallback";
+import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
 
 const SignIn = () => {
     return (

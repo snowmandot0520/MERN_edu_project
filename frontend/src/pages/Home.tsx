@@ -1,5 +1,5 @@
 import UploadForm from "../components/UploadForm";
-import { FallbackPageWrapper } from "react-current-page-fallback";
+import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
 import Layout from "../components/Layout";
 
 const Home = () => {
