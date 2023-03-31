@@ -10,6 +10,7 @@ import {
 } from "@mantine/core";
 import { TbCheck } from "react-icons/tb";
 import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
+import { InputWithButton } from "../components/InputWithButton";
 import Layout from "../components/Layout";
 import { useNavigate } from "react-router";
 import { routes as routes_config } from "../config/routes_config";
@@ -130,7 +131,7 @@ const Home = () => {
               </Group>
             </div>
             <Group className={classes.image} align="center">
-              // FORM
+              <InputWithButton />
             </Group>
           </div>
         </Container>
