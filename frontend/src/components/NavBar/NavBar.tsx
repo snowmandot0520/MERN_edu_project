@@ -14,6 +14,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { NavLink } from "react-router-dom";
 import ActionAvatar from "./ActionAvatar";
+import { routes as routes_config } from '../../config/routes_config';
 
 const HEADER_HEIGHT = 60;
 
@@ -109,7 +110,7 @@ const NavBar = () => {
 
   const authenticatedLinks = [
     {
-      link: "/home",
+      link: routes_config.home.path_string(),
       label: "Home",
     },
     {

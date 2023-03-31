@@ -16,6 +16,7 @@ import { getApiErrorMessage } from "../../utils/commonFunction";
 import toast from "../../utils/Toast";
 import { routes } from "../../config/routes_config";
 import Storage from "../../services/Storage";
+import { routes as routes_config } from '../../config/routes_config';
 
 const SignInForm = () => {
   const [isLoading, setLoading] = useState(false);
@@ -70,7 +71,7 @@ const SignInForm = () => {
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
         You don't have an account yet?{" "}
-        <NavLink to="sign-up">{"Sign up"}</NavLink>
+        <NavLink to={routes_config.signUp.path_string()}>{"Sign up"}</NavLink>
       </Text>
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={form.onSubmit((values) => signIn(values))}>

@@ -22,13 +22,26 @@ export type IRoutesConfig = {
  *  components will be assigned in config/routes.ts
  */
 export const routes: IRoutesConfig = {
+  home: {
+    id: 'home',
+    name: 'Home',
+    description: 'Home',
+    path: '/',
+    path_string: () => {
+      return `/`;
+    },
+    exact: true,
+    isPrivate: false,
+    isStatic: true,
+    component: undefined
+  },
   signIn: {
     id: 'signIn',
     name: 'SignIn',
     description: 'SignIn',
-    path: '/',
+    path: '/sign-in',
     path_string: () => {
-      return `/`;
+      return `/sign-in`;
     },
     exact: true,
     isPrivate: false,
@@ -45,19 +58,6 @@ export const routes: IRoutesConfig = {
     },
     exact: true,
     isPrivate: false,
-    isStatic: false,
-    component: undefined
-  },
-  home: {
-    id: 'home',
-    name: 'Home',
-    description: 'Home',
-    path: '/home',
-    path_string: () => {
-      return `/home`;
-    },
-    exact: true,
-    isPrivate: true,
     isStatic: false,
     component: undefined
   },
