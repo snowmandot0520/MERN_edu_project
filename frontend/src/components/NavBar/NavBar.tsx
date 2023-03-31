@@ -15,6 +15,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { NavLink } from "react-router-dom";
 import ActionAvatar from "./ActionAvatar";
 import { routes as routes_config } from '../../config/routes_config';
+import { useAuth } from "../../hooks/useAuth";
 
 const HEADER_HEIGHT = 60;
 
@@ -107,6 +108,7 @@ const useStyles = createStyles((theme) => ({
 const NavBar = () => {
   const [opened, toggleOpened] = useDisclosure(false);
   const { classes, cx } = useStyles();
+  const auth = useAuth();
 
   const authenticatedLinks = [
     {
@@ -118,10 +120,29 @@ const NavBar = () => {
     },
   ];
 
+
+  const unauthenticatedLinks = [
+    {
+      link: routes_config.home.path_string(),
+      label: "Home",
+      component: null
+    },
+    {
+      link: routes_config.signIn.path_string(),
+      label: "Sign in",
+      component: null
+    },
+    {
+      link: routes_config.signUp.path_string(),
+      label: "Sign up",
+      component: null
+    }];
+
+
   const items = (
     <>
-      {(authenticatedLinks).map((link, i) => {
-        if (link.component) {
+      {(auth ? authenticatedLinks : unauthenticatedLinks)?.map((link, i) => {
+        if (link?.component) {
           return (
             <Box pl={5} py={15} key={i}>
               {link.component}
@@ -134,7 +155,7 @@ const NavBar = () => {
             to={link.link ?? ""}
             onClick={() => toggleOpened.toggle()}
             className={cx(classes.link, {
-              [classes.linkActive]: window.location.pathname == link.link,
+              [classes.linkActive]: window.location.pathname === link.link,
             })}
           >
             {link.label}

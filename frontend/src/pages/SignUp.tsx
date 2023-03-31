@@ -1,10 +1,13 @@
 import SignUpForm from "../components/auth/SignUpForm";
 import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
+import Layout from "../components/Layout";
 
 const SignUp = () => {
     return (
         <FallbackPageWrapper>
-          <SignUpForm />
+          <Layout>
+            <SignUpForm />
+          </Layout>
         </FallbackPageWrapper>
       );
 };

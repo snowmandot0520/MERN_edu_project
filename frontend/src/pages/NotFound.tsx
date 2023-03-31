@@ -8,6 +8,7 @@ import {
 } from "@mantine/core";
 import { NavLink } from "react-router-dom";
 import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
+import Layout from "../components/Layout";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -40,22 +41,24 @@ const ErrorNotFound : FC = () => {
 
   return (
     <FallbackPageWrapper>
-      <Container className={classes.root}>
-        <div className={classes.label}>404</div>
-        <Title align="center" order={3}>
-          Oops this page doesn't exist.
-        </Title>
-        <Text
-          color="dimmed"
-          align="center"
-          className={classes.description}
-        ></Text>
-        <Group position="center">
-          <NavLink to="/">
-            Bring me back
-          </NavLink>
-        </Group>
-      </Container>
+      <Layout>
+        <Container className={classes.root}>
+          <div className={classes.label}>404</div>
+          <Title align="center" order={3}>
+            Oops this page doesn't exist.
+          </Title>
+          <Text
+            color="dimmed"
+            align="center"
+            className={classes.description}
+          ></Text>
+          <Group position="center">
+            <NavLink to="/">
+              Bring me back
+            </NavLink>
+          </Group>
+        </Container>
+      </Layout>
     </FallbackPageWrapper>
   );
 };

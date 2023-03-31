@@ -1,14 +1,14 @@
-import SignInForm from "../components/auth/SignInForm";
+import UploadForm from "../components/UploadForm";
 import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
 import Layout from "../components/Layout";
 
-const SignIn = () => {
+const Upload = () => {
   return (
     <FallbackPageWrapper>
       <Layout>
-        <SignInForm />
+        <UploadForm />
       </Layout>
     </FallbackPageWrapper>
   );
 };
-export default SignIn;
+export default Upload;
