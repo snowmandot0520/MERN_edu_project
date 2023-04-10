@@ -1,15 +1,13 @@
-import { Global } from "@mantine/core";
+import { Global } from '@mantine/core';
 
-const GlobalStyle = () => {
-  return (
+const GlobalStyle = () => (
     <Global
       styles={() => ({
         a: {
-          color: "inherit",
-          textDecoration: "none",
+          color: 'inherit',
+          textDecoration: 'none',
         },
       })}
     />
   );
-};
 export default GlobalStyle;

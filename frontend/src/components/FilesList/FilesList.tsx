@@ -1,7 +1,8 @@
-import { ActionIcon, Table } from "@mantine/core";
-import { CheckboxGroup } from "@mantine/core/lib/Checkbox/CheckboxGroup/CheckboxGroup";
-import { TbTrash } from "react-icons/tb";
-import { byteStringToHumanSizeString } from "../../utils/commonFunction";
+import { ActionIcon, Table } from '@mantine/core';
+import { CheckboxGroup } from '@mantine/core/lib/Checkbox/CheckboxGroup/CheckboxGroup';
+import { TbTrash } from 'react-icons/tb';
+
+import { byteStringToHumanSizeString } from 'src/utils/commonFunction';
 
 interface IFilesList {
   files: File[];

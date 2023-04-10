@@ -1,9 +1,11 @@
-import { useState, useCallback } from "react";
-import { Button, Group } from "@mantine/core";
-import { useForm, yupResolver } from "@mantine/form";
-import * as yup from "yup";
-import Dropzone from "./Dropzone/Dropzone";
-import FilesList from "./FilesList/FilesList";
+import { useCallback, useState } from 'react';
+
+import { Button, Group } from '@mantine/core';
+import { useForm, yupResolver } from '@mantine/form';
+import * as yup from 'yup';
+
+import Dropzone from 'src/components/Dropzone/Dropzone';
+import FilesList from 'src/components/FilesList/FilesList';
 
 const UploadForm = () => {
   const [isUploading] = useState(false);
@@ -25,17 +27,17 @@ const UploadForm = () => {
     (newFiles: File[]) => {
       const allFiles = [...values.files, ...newFiles];
 
-      setFieldValue("files", allFiles as any);
+      setFieldValue('files', allFiles as any);
     },
     [values.files]
   );
 
   const onRemoveFiles = useCallback((files:any) => {
-    setFieldValue("files", files);
+    setFieldValue('files', files);
   }, []);
 
   const onSubmit = (values: File[]) => {
-    console.log("onSubmit Files", values);
+    console.log('onSubmit Files', values);
   };
 
   return (

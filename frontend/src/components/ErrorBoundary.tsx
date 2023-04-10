@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component } from 'react';
 
 interface IState {
   error: any;
@@ -16,7 +16,7 @@ class ErrorBoundary extends Component<any, IState> {
     this.setState({
       error,
       errorInfo
-    })
+    });
     // You can also log error messages to an error reporting service here
   }
 

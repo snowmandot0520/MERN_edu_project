@@ -1,5 +1,6 @@
-import React, { useMemo, useEffect } from 'react';
-import { usePageRoute } from '../hooks/usePageRoute';
+import React, { useEffect, useMemo } from 'react';
+
+import { usePageRoute } from 'src/hooks/usePageRoute';
 
 interface PageWrapperProps {
     children?: React.ReactNode | React.ReactElement | any

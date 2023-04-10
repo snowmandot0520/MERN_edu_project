@@ -1,14 +1,16 @@
-import { FC } from "react";
+import { FC } from 'react';
+
 import {
-  createStyles,
-  Title,
-  Text,
   Container,
+  createStyles,
   Group,
-} from "@mantine/core";
-import { NavLink } from "react-router-dom";
-import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
-import Layout from "../components/Layout";
+  Text,
+  Title,
+} from '@mantine/core';
+import { NavLink } from 'react-router-dom';
+
+import { FallbackPageWrapper } from 'src/components/FallbackPageWrapper';
+import Layout from 'src/components/Layout';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -17,21 +19,21 @@ const useStyles = createStyles((theme) => ({
   },
 
   label: {
-    textAlign: "center",
+    textAlign: 'center',
     fontWeight: 900,
     fontSize: 220,
     lineHeight: 1,
     marginBottom: theme.spacing.xl * 1.5,
     color: theme.colors.gray[2],
 
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan('sm')]: {
       fontSize: 120,
     },
   },
 
   description: {
     maxWidth: 500,
-    margin: "auto",
+    margin: 'auto',
     marginBottom: theme.spacing.xl * 1.5,
   },
 }));
@@ -51,7 +53,7 @@ const ErrorNotFound : FC = () => {
             color="dimmed"
             align="center"
             className={classes.description}
-          ></Text>
+           />
           <Group position="center">
             <NavLink to="/">
               Bring me back

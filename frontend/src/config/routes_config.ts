@@ -27,9 +27,7 @@ export const routes: IRoutesConfig = {
     name: 'Home',
     description: 'Home',
     path: '/',
-    path_string: () => {
-      return `/`;
-    },
+    path_string: () => '/',
     exact: true,
     isPrivate: false,
     isStatic: true,
@@ -40,9 +38,7 @@ export const routes: IRoutesConfig = {
     name: 'SignIn',
     description: 'SignIn',
     path: '/sign-in',
-    path_string: () => {
-      return `/sign-in`;
-    },
+    path_string: () => '/sign-in',
     exact: true,
     isPrivate: false,
     isStatic: false,
@@ -53,9 +49,7 @@ export const routes: IRoutesConfig = {
     name: 'SignUp',
     description: 'SignUp',
     path: '/sign-up',
-    path_string: () => {
-      return `/sign-up`;
-    },
+    path_string: () => '/sign-up',
     exact: true,
     isPrivate: false,
     isStatic: false,
@@ -66,9 +60,7 @@ export const routes: IRoutesConfig = {
     name: '404',
     description: 'Page not found',
     path: '/*',
-    path_string: () => {
-      return `/404`;
-    },
+    path_string: () => '/404',
     exact: false,
     isPrivate: false,
     isStatic: true,

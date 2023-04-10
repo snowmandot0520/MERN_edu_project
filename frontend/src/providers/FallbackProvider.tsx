@@ -1,4 +1,5 @@
-import React, { createContext, useState, useCallback, useMemo } from 'react';
+import React, { createContext, useCallback, useMemo, useState } from 'react';
+
 import ProgressBar from 'react-topbar-progress-indicator';
 
 // Progress Bar -> Configuration

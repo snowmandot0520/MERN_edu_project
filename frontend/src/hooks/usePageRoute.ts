@@ -1,5 +1,6 @@
 import { useCallback, useContext } from 'react';
-import { FallbackContext, FallbackType } from '../providers/FallbackProvider';
+
+import { FallbackContext, FallbackType } from 'src/providers/FallbackProvider';
 
 export const usePageRoute = (): any => {
     const { updateFallback } = useContext(FallbackContext);

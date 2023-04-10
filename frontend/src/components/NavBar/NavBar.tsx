@@ -1,4 +1,5 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState } from 'react';
+
 import {
     Box,
     Burger,
@@ -10,12 +11,15 @@ import {
     Stack,
     Text,
     Transition,
-  } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { NavLink } from "react-router-dom";
-import ActionAvatar from "./ActionAvatar";
-import { routes as routes_config } from '../../config/routes_config';
-import { useAuth } from "../../hooks/useAuth";
+  } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import { NavLink } from 'react-router-dom';
+import { useAuth } from 'src/hooks/useAuth';
+
+import ActionAvatar from 'src/components/NavBar/ActionAvatar';
+import { routes as routes_config } from 'src/config/routes_config';
+
+
 
 const HEADER_HEIGHT = 60;
 
@@ -28,12 +32,12 @@ type NavLink = {
 
 const useStyles = createStyles((theme) => ({
   root: {
-    position: "relative",
+    position: 'relative',
     zIndex: 1,
   },
 
   dropdown: {
-    position: "absolute",
+    position: 'absolute',
     top: HEADER_HEIGHT,
     left: 0,
     right: 0,
@@ -41,66 +45,66 @@ const useStyles = createStyles((theme) => ({
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     borderTopWidth: 0,
-    overflow: "hidden",
+    overflow: 'hidden',
 
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
     },
   },
 
   header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: "100%",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '100%',
   },
 
   links: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
     },
   },
 
   burger: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
     },
   },
 
   link: {
-    display: "block",
+    display: 'block',
     lineHeight: 1,
-    padding: "8px 12px",
+    padding: '8px 12px',
     borderRadius: theme.radius.sm,
-    textDecoration: "none",
+    textDecoration: 'none',
     color:
-      theme.colorScheme === "dark"
+      theme.colorScheme === 'dark'
         ? theme.colors.dark[0]
         : theme.colors.gray[7],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
-    "&:hover": {
+    '&:hover': {
       backgroundColor:
-        theme.colorScheme === "dark"
+        theme.colorScheme === 'dark'
           ? theme.colors.dark[6]
           : theme.colors.gray[0],
     },
 
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan('sm')]: {
       borderRadius: 0,
       padding: theme.spacing.md,
     },
   },
 
   linkActive: {
-    "&, &:hover": {
+    '&, &:hover': {
       backgroundColor:
-        theme.colorScheme === "dark"
+        theme.colorScheme === 'dark'
           ? theme.fn.rgba(theme.colors[theme.primaryColor][9], 0.25)
           : theme.colors[theme.primaryColor][0],
       color:
-        theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 3 : 7],
+        theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
     },
   },
 }));
@@ -113,7 +117,7 @@ const NavBar = () => {
   const authenticatedLinks = [
     {
       link: routes_config.home.path_string(),
-      label: "Home",
+      label: 'Home',
     },
     {
       component: <ActionAvatar />,
@@ -124,17 +128,17 @@ const NavBar = () => {
   const unauthenticatedLinks = [
     {
       link: routes_config.home.path_string(),
-      label: "Home",
+      label: 'Home',
       component: null
     },
     {
       link: routes_config.signIn.path_string(),
-      label: "Sign in",
+      label: 'Sign in',
       component: null
     },
     {
       link: routes_config.signUp.path_string(),
-      label: "Sign up",
+      label: 'Sign up',
       component: null
     }];
 
@@ -152,7 +156,7 @@ const NavBar = () => {
         return (
           <NavLink
             key={link.label}
-            to={link.link ?? ""}
+            to={link.link ?? ''}
             onClick={() => toggleOpened.toggle()}
             className={cx(classes.link, {
               [classes.linkActive]: window.location.pathname === link.link,
@@ -184,7 +188,7 @@ const NavBar = () => {
         />
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
+            <Paper className={classes.dropdown} withBorder={true} style={styles}>
               <Stack spacing={0}> {items}</Stack>
             </Paper>
           )}

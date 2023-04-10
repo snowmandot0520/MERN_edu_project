@@ -1,16 +1,17 @@
-import { FC } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { MantineProvider } from "@mantine/core";
-import { NotificationsProvider } from "@mantine/notifications";
-import { FallbackProvider } from "./providers/FallbackProvider";
-import { Routes } from "./routes";
-import ErrorBoundary from "./components/ErrorBoundary";
-import GlobalStyle from "./styles/global.style";
+import React, { FC } from 'react';
 
-export const App: FC = () => {
-  return (
+import { MantineProvider } from '@mantine/core';
+import { NotificationsProvider } from '@mantine/notifications';
+import { BrowserRouter } from 'react-router-dom';
+import { FallbackProvider } from 'src/providers/FallbackProvider';
+import { Routes } from 'src/routes';
+import GlobalStyle from 'src/styles/global.style';
+
+import ErrorBoundary from 'src/components/ErrorBoundary';
+
+export const App: FC = () => (
     <ErrorBoundary>
-      <MantineProvider withGlobalStyles withNormalizeCSS>
+      <MantineProvider withGlobalStyles={true} withNormalizeCSS={true}>
         <GlobalStyle />
         <NotificationsProvider position='top-right'>
           <BrowserRouter>
@@ -22,6 +23,5 @@ export const App: FC = () => {
       </MantineProvider>
     </ErrorBoundary>
   );
-};
 
 export default App;

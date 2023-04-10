@@ -1,6 +1,7 @@
 import React from 'react';
-import { TextInput, ActionIcon, useMantineTheme, TextInputProps } from '@mantine/core';
-import { TbCopy } from "react-icons/tb";
+
+import { ActionIcon, TextInput, TextInputProps, useMantineTheme } from '@mantine/core';
+import { TbCopy } from 'react-icons/tb';
 
 
 export const InputWithButton: React.FC = (props: TextInputProps) => {
@@ -20,7 +21,7 @@ export const InputWithButton: React.FC = (props: TextInputProps) => {
             rightSectionWidth={52}
             {...props}
         />
-    )
-}
+    );
+};
 
 export default InputWithButton;

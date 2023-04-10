@@ -1,5 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import tsconfigPaths from 'vite-tsconfig-paths';
+import * as path from 'path'
+
 // import react from '@vitejs/plugin-react'
 // import commonjs from "@originjs/vite-plugin-commonjs";
 // import commonjs from "@rollup/plugin-commonjs";
@@ -23,6 +26,12 @@ export default defineConfig({
   // optimizeDeps: {
   //   include: ["react", "react-dom/client"],
   // },
+  resolve: {
+    alias: [
+      { find: 'src', replacement: path.resolve(__dirname, 'src') },
+    ],
+  },
+
   plugins: [
   //   resolve({
   //     preferBuiltins: true,
@@ -33,5 +42,6 @@ export default defineConfig({
   //     requireReturnsDefault: "auto", // <---- this solves default issue
   //   }),
     react(),
+    tsconfigPaths()
   ],
 });

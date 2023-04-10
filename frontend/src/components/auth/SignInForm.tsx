@@ -1,22 +1,23 @@
-import { useState } from "react";
+import { useState } from 'react';
+
 import {
   Button,
   Container,
   Paper,
   PasswordInput,
+  Text,
   TextInput,
   Title,
-  Text,
-} from "@mantine/core";
-import { useForm, yupResolver } from "@mantine/form";
-import { NavLink, useNavigate } from "react-router-dom";
-import * as yup from "yup";
-import { POST } from "../../services/HttpService";
-import { getApiErrorMessage } from "../../utils/commonFunction";
-import toast from "../../utils/Toast";
-import { routes } from "../../config/routes_config";
-import Storage from "../../services/Storage";
-import { routes as routes_config } from '../../config/routes_config';
+} from '@mantine/core';
+import { useForm, yupResolver } from '@mantine/form';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { POST } from 'src/services/HttpService';
+import Storage from 'src/services/Storage';
+import * as yup from 'yup';
+
+import { routes , routes as routes_config } from 'src/config/routes_config';
+import { getApiErrorMessage } from 'src/utils/commonFunction';
+import toast from 'src/utils/Toast';
 
 const SignInForm = () => {
   const [isLoading, setLoading] = useState(false);
@@ -29,8 +30,8 @@ const SignInForm = () => {
 
   const form = useForm({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
     validate: yupResolver(validationSchema),
   });
@@ -40,15 +41,15 @@ const SignInForm = () => {
     const { email, password } = values;
     try {
       const response = await POST({
-        subUrl: "/users/signin",
+        subUrl: '/users/signin',
         data: {
           email,
           password,
         },
       });
-      console.log("response",response.data?.data?.token)
-      Storage.setItem('token', response.data?.data?.token)
-      toast.success("Login successful");
+      console.log('response',response.data?.data?.token);
+      Storage.setItem('token', response.data?.data?.token);
+      toast.success('Login successful');
       navigate(routes.home.path_string());
     } catch (error) {
       const message = getApiErrorMessage(error);
@@ -70,23 +71,23 @@ const SignInForm = () => {
         Welcome back
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-        You don't have an account yet?{" "}
-        <NavLink to={routes_config.signUp.path_string()}>{"Sign up"}</NavLink>
+        You don't have an account yet?{' '}
+        <NavLink to={routes_config.signUp.path_string()}>Sign up</NavLink>
       </Text>
-      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+      <Paper withBorder={true} shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={form.onSubmit((values) => signIn(values))}>
           <TextInput
             label="Email"
             placeholder="you@email.com"
-            {...form.getInputProps("email")}
+            {...form.getInputProps('email')}
           />
           <PasswordInput
             label="Password"
             placeholder="Your password"
             mt="md"
-            {...form.getInputProps("password")}
+            {...form.getInputProps('password')}
           />
-          <Button fullWidth mt="xl" type="submit" disabled={isLoading}>
+          <Button fullWidth={true} mt="xl" type="submit" disabled={isLoading}>
             Sign in
           </Button>
         </form>

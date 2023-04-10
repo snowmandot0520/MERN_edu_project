@@ -1,6 +1,8 @@
 import { lazy } from 'react';
+
 import { createBrowserHistory } from 'history';
-import { routes as routes_config, IRoutesConfig } from './routes_config';
+
+import { IRoutesConfig, routes as routes_config } from 'src/config/routes_config';
 
 export const history = createBrowserHistory();
 

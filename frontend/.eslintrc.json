@@ -1,0 +1,305 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "typescript": {},
+                "extensions": [
+                    ".js",
+                    ".ts",
+                    ".tsx",
+                    ".jsx"
+                ]
+            }
+        }
+    },
+    "extends": [
+        "airbnb",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:css-import-order/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module",
+        "paths": "/src",
+        "ecmaVersion": 2020,
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "deprecation",
+        "css-import-order",
+        "no-relative-import-paths"
+    ],
+    "rules": {
+        "import/no-unresolved": [
+            0,
+            {
+                "caseSensitive": false
+            }
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "no-use-before-define": "off",
+        "no-console": "error",
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": [
+            "error"
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "ts": "never",
+                "jsx": "never",
+                "tsx": "never"
+            }
+        ],
+        "react/jsx-filename-extension": [
+            0,
+            {
+                "extensions": [
+                    ".tsx"
+                ]
+            }
+        ],
+        "react/destructuring-assignment": [
+            0,
+            "never",
+            {
+                "ignoreClassFields": true
+            }
+        ],
+        "click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": [
+            "off",
+            {
+                "handlers": [
+                    "onClick",
+                    "onMouseDown",
+                    "onMouseUp",
+                    "onKeyPress",
+                    "onKeyDown",
+                    "onKeyUp"
+                ]
+            }
+        ],
+        "no-array-constructor": "off",
+        "no-empty-function": "off",
+        "operator-assignment": [
+            "error",
+            "never"
+        ],
+        "class-methods-use-this": "off",
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/member-ordering": "off",
+        "react/sort-comp": "off",
+        "sort-imports": [
+            "error",
+            {
+                "ignoreCase": true,
+                "ignoreDeclarationSort": true
+            }
+        ],
+        "import/order": [
+            1,
+            {
+                "groups": [
+                    "external",
+                    "builtin",
+                    "internal",
+                    "sibling",
+                    "parent",
+                    "index",
+                    "object",
+                    "type"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "src/pages/**",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "src/components/**",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "src/config/**",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "src/utils/**",
+                        "group": "internal"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": [
+                    "react",
+                    "**/*.scss"
+                ],
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ],
+        "no-relative-import-paths/no-relative-import-paths": [
+            "warn",
+            {
+                "allowSameFolder": false
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ],
+            "rules": {
+                "lines-between-class-members": [
+                    "error",
+                    "always",
+                    {
+                        "exceptAfterSingleLine": true
+                    }
+                ],
+                "no-param-reassign": 0,
+                "id-length": [
+                    2,
+                    {
+                        "exceptions": [
+                            "i",
+                            "j",
+                            "id",
+                            "t",
+                            "e",
+                            "x",
+                            "y"
+                        ],
+                        "properties": "never",
+                        "min": 3
+                    }
+                ],
+                "no-plusplus": [
+                    "error",
+                    {
+                        "allowForLoopAfterthoughts": true
+                    }
+                ],
+                "deprecation/deprecation": "warn",
+                "@typescript-eslint/explicit-module-boundary-types": [
+                    "error"
+                ],
+                "no-unused-vars": "off",
+                "@typescript-eslint/no-unused-vars": [
+                    "error"
+                ],
+                "@typescript-eslint/no-non-null-assertion": "error",
+                "react/function-component-definition": [
+                    2,
+                    {
+                        "namedComponents": "arrow-function"
+                    }
+                ],
+                "func-names": [
+                    "error",
+                    "always",
+                    {
+                        "generators": "never"
+                    }
+                ],
+                "radix": [
+                    2,
+                    "as-needed"
+                ],
+                "curly": [
+                    "error",
+                    "all"
+                ],
+                "prefer-destructuring": [
+                    "error",
+                    {
+                        "array": false,
+                        "object": false
+                    },
+                    {
+                        "enforceForRenamedProperties": true
+                    }
+                ],
+                "@typescript-eslint/no-array-constructor": [
+                    "off"
+                ],
+                "@typescript-eslint/no-empty-function": [
+                    "off"
+                ],
+                "react/prefer-stateless-function": "off",
+                "react/jsx-boolean-value": [
+                    "error",
+                    "always"
+                ],
+                "@typescript-eslint/explicit-member-accessibility": [
+                    "error",
+                    {
+                        "accessibility": "explicit",
+                        "overrides": {
+                            "accessors": "explicit",
+                            "constructors": "no-public",
+                            "methods": "explicit",
+                            "properties": "explicit",
+                            "parameterProperties": "explicit"
+                        }
+                    }
+                ],
+                "react/require-default-props": [
+                    0,
+                    {
+                        "forbidDefaultForRequired": false,
+                        "classes": "ignore",
+                        "functions": "ignore"
+                    }
+                ],
+                "react/jsx-props-no-spreading": [
+                    0,
+                    {
+                        "html": "ignore",
+                        "custom": "ignore",
+                        "explicitSpread": "ignore"
+                    }
+                ],
+                "react/no-unused-prop-types": [
+                    0
+                ],
+                "react/no-danger": [
+                    0
+                ],
+                "react/no-unknown-property": [
+                    0
+                ],
+                "prefer-const": [
+                    0
+                ]
+            }
+        }
+    ]
+}

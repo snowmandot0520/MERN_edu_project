@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState } from 'react';
+
 import {
   Button,
   Container,
@@ -7,14 +8,15 @@ import {
   Text,
   TextInput,
   Title,
-} from "@mantine/core";
-import { useForm, yupResolver } from "@mantine/form";
-import { NavLink } from "react-router-dom";
-import * as yup from "yup";
-import { POST } from "../../services/HttpService";
-import { getApiErrorMessage } from "../../utils/commonFunction";
-import toast from "../../utils/Toast";
-import { routes as routes_config } from '../../config/routes_config';
+} from '@mantine/core';
+import { useForm, yupResolver } from '@mantine/form';
+import { NavLink } from 'react-router-dom';
+import { POST } from 'src/services/HttpService';
+import * as yup from 'yup';
+
+import { routes as routes_config } from 'src/config/routes_config';
+import { getApiErrorMessage } from 'src/utils/commonFunction';
+import toast from 'src/utils/Toast';
 
 const SignUpForm = () => {
   const [isLoading, setLoading] = useState(false);
@@ -27,17 +29,17 @@ const SignUpForm = () => {
     confirmPassword: yup
       .string()
       .min(8)
-      .oneOf([yup.ref("password")], "Passwords must match")
+      .oneOf([yup.ref('password')], 'Passwords must match')
       .required(),
   });
 
   const form = useForm({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
     },
     validate: yupResolver(validationSchema),
   });
@@ -47,7 +49,7 @@ const SignUpForm = () => {
     const { firstName, lastName, email, password } = values;
     try {
       await POST({
-        subUrl: "/users/signup",
+        subUrl: '/users/signup',
         data: {
           firstName,
           lastName,
@@ -55,7 +57,7 @@ const SignUpForm = () => {
           password,
         },
       });
-      toast.success("Registration successful");
+      toast.success('Registration successful');
     } catch (error) {
       const message = getApiErrorMessage(error);
       message && toast.error(message);
@@ -78,39 +80,39 @@ const SignUpForm = () => {
       <Text color="dimmed" size="sm" align="center" mt={5}>
         You have an account already? <NavLink to={routes_config.signIn.path_string()}>Sign in</NavLink>
       </Text>
-      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+      <Paper withBorder={true} shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={form.onSubmit((values) => signUp(values))}>
           <TextInput
             label="firstName"
             placeholder="john"
             mt="md"
-            {...form.getInputProps("firstName")}
+            {...form.getInputProps('firstName')}
           />
           <TextInput
             label="lastName"
             placeholder="Doe"
             mt="md"
-            {...form.getInputProps("lastName")}
+            {...form.getInputProps('lastName')}
           />
           <TextInput
             label="Email"
             placeholder="you@email.com"
             mt="md"
-            {...form.getInputProps("email")}
+            {...form.getInputProps('email')}
           />
           <PasswordInput
             label="Password"
             placeholder="Your password"
             mt="md"
-            {...form.getInputProps("password")}
+            {...form.getInputProps('password')}
           />
           <PasswordInput
             label="Confirm Password"
             placeholder="Your confirm password"
             mt="md"
-            {...form.getInputProps("confirmPassword")}
+            {...form.getInputProps('confirmPassword')}
           />
-          <Button fullWidth mt="xl" type="submit" disabled={isLoading}>
+          <Button fullWidth={true} mt="xl" type="submit" disabled={isLoading}>
             Let's get started
           </Button>
         </form>

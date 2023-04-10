@@ -1,12 +1,11 @@
-import { Container } from "@mantine/core";
-import Header from "../components/NavBar/NavBar";
+import { Container } from '@mantine/core';
 
-const Layout = ({ children }: any) => {
-  return (
+import Header from 'src/components/NavBar/NavBar';
+
+const Layout = ({ children }: any) => (
     <>
       <Header />
       <Container>{children}</Container>
     </>
   );
-};
 export default Layout;

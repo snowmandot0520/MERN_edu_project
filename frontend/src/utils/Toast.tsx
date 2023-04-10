@@ -1,25 +1,25 @@
-import { showNotification } from "@mantine/notifications";
-import { TbCheck, TbX } from "react-icons/tb";
+import { showNotification } from '@mantine/notifications';
+import { TbCheck, TbX } from 'react-icons/tb';
 
 const error = (message: string) =>
   showNotification({
     icon: <TbX />,
-    color: "red",
-    radius: "md",
-    title: "Error",
-    message: message,
+    color: 'red',
+    radius: 'md',
+    title: 'Error',
+    message,
   });
 
 const axiosError = (axiosError: any) =>
-  error(axiosError?.response?.data?.message ?? "An unknown error occured");
+  error(axiosError?.response?.data?.message ?? 'An unknown error occured');
 
 const success = (message: string) =>
   showNotification({
     icon: <TbCheck />,
-    color: "green",
-    radius: "md",
-    title: "Success",
-    message: message,
+    color: 'green',
+    radius: 'md',
+    title: 'Success',
+    message,
   });
 
 const toast = {

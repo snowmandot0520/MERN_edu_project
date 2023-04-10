@@ -1,11 +1,12 @@
-import { FC, ElementType } from "react";
-import { routes } from "../config/routes";
-import { Routes, Route } from "react-router-dom";
-import { PrivateRoute } from "./PrivateRoute";
-import { PublicRoute } from "./PublicRoute";
+import { ElementType, FC } from 'react';
 
-export const AppRoutes: FC = () => {
-  return (
+import { Route, Routes } from 'react-router-dom';
+import { PrivateRoute } from 'src/routes/PrivateRoute';
+import { PublicRoute } from 'src/routes/PublicRoute';
+
+import { routes } from 'src/config/routes';
+
+export const AppRoutes: FC = () => (
     <Routes>
       {Object.keys(routes).map((key) => {
         const {
@@ -49,6 +50,5 @@ export const AppRoutes: FC = () => {
       })}
     </Routes>
   );
-};
 
 export default AppRoutes;

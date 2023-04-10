@@ -1,14 +1,12 @@
-import UploadForm from "../components/UploadForm";
-import { FallbackPageWrapper } from "../components/FallbackPageWrapper";
-import Layout from "../components/Layout";
+import { FallbackPageWrapper } from 'src/components/FallbackPageWrapper';
+import Layout from 'src/components/Layout';
+import UploadForm from 'src/components/UploadForm';
 
-const Upload = () => {
-  return (
+const Upload = () => (
     <FallbackPageWrapper>
       <Layout>
         <UploadForm />
       </Layout>
     </FallbackPageWrapper>
   );
-};
 export default Upload;

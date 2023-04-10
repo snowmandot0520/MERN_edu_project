@@ -1,12 +1,14 @@
-import { Button, Center, createStyles, Group, Text } from "@mantine/core";
-import { Dropzone as MantineDropzone } from "@mantine/dropzone";
-import { ForwardedRef, useRef } from "react";
-import { TbCloudUpload, TbUpload } from "react-icons/tb";
-import toast from "../../utils/Toast";
+import { ForwardedRef, useRef } from 'react';
+
+import { Button, Center, createStyles, Group, Text } from '@mantine/core';
+import { Dropzone as MantineDropzone } from '@mantine/dropzone';
+import { TbCloudUpload, TbUpload } from 'react-icons/tb';
+
+import toast from 'src/utils/Toast';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    position: "relative",
+    position: 'relative',
     marginBottom: 30,
   },
 
@@ -17,13 +19,13 @@ const useStyles = createStyles((theme) => ({
 
   icon: {
     color:
-      theme.colorScheme === "dark"
+      theme.colorScheme === 'dark'
         ? theme.colors.dark[3]
         : theme.colors.gray[4],
   },
 
   control: {
-    position: "absolute",
+    position: 'absolute',
     bottom: -20,
   },
 }));
@@ -46,15 +48,13 @@ const Dropzone = ({ isUploading, setFiles }: IDropzone) => {
         disabled={isUploading}
         openRef={openRef as ForwardedRef<() => void>}
         onDrop={(files: File[]) => {
-          const newFiles = files.map((file: File) => {
-            return file;
-          });
+          const newFiles = files.map((file: File) => file);
           setFiles(newFiles);
         }}
         className={classes.dropzone}
         radius="md"
       >
-        <div style={{ pointerEvents: "none" }}>
+        <div style={{ pointerEvents: 'none' }}>
           <Group position="center">
             <TbCloudUpload size={50} />
           </Group>
