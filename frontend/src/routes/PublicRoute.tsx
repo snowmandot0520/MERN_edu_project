@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 
-import { Navigate, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useAuth } from 'src/hooks/useAuth';
 
 import { routes } from 'src/config/routes_config';

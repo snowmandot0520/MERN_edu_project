@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router';
 import { FallbackPageWrapper } from 'src/components/FallbackPageWrapper';
 import { InputWithButton } from 'src/components/InputWithButton';
 import Layout from 'src/components/Layout';
-import { routes as routes_config } from 'src/config/routes_config';
+import { routes as routesConfig } from 'src/config/routes_config';
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -109,7 +109,7 @@ const Home = () => {
               </List>
               <Group mt={30}>
                 <Button
-                  onClick={() => navigate(routes_config.signUp.path_string())}
+                  onClick={() => navigate(routesConfig.signUp.path_string())}
                   radius="xl"
                   size="md"
                   className={classes.control}

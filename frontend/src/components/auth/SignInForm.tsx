@@ -15,7 +15,7 @@ import { POST } from 'src/services/HttpService';
 import Storage from 'src/services/Storage';
 import * as yup from 'yup';
 
-import { routes , routes as routes_config } from 'src/config/routes_config';
+import { routes , routes as routesConfig } from 'src/config/routes_config';
 import { getApiErrorMessage } from 'src/utils/commonFunction';
 import toast from 'src/utils/Toast';
 
@@ -72,7 +72,7 @@ const SignInForm = () => {
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
         You don't have an account yet?{' '}
-        <NavLink to={routes_config.signUp.path_string()}>Sign up</NavLink>
+        <NavLink to={routesConfig.signUp.path_string()}>Sign up</NavLink>
       </Text>
       <Paper withBorder={true} shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={form.onSubmit((values) => signIn(values))}>

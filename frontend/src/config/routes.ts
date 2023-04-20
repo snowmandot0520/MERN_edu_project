@@ -2,25 +2,25 @@ import { lazy } from 'react';
 
 import { createBrowserHistory } from 'history';
 
-import { IRoutesConfig, routes as routes_config } from 'src/config/routes_config';
+import { IRoutesConfig, routes as routesConfig } from 'src/config/routes_config';
 
 export const history = createBrowserHistory();
 
 export const routes: IRoutesConfig = {
-  [routes_config.signIn.id]: {
-    ...routes_config.signIn,
+  [routesConfig.signIn.id]: {
+    ...routesConfig.signIn,
     component: lazy(() => import('../pages/SignIn'))
   },
-  [routes_config.signUp.id]: {
-    ...routes_config.signUp,
+  [routesConfig.signUp.id]: {
+    ...routesConfig.signUp,
     component: lazy(() => import('../pages/SignUp'))
   },
-  [routes_config.home.id]: {
-    ...routes_config.home,
+  [routesConfig.home.id]: {
+    ...routesConfig.home,
     component: lazy(() => import('../pages/Home'))
   },
-  [routes_config.notFound.id]: {
-    ...routes_config.notFound,
+  [routesConfig.notFound.id]: {
+    ...routesConfig.notFound,
     component: lazy(() => import('../pages/NotFound'))
   }
 };

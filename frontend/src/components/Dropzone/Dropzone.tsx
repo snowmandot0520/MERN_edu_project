@@ -1,4 +1,4 @@
-import { ForwardedRef, useRef } from 'react';
+import React, { ForwardedRef, useRef } from 'react';
 
 import { Button, Center, createStyles, Group, Text } from '@mantine/core';
 import { Dropzone as MantineDropzone } from '@mantine/dropzone';
@@ -35,14 +35,14 @@ interface IDropzone {
   setFiles: (files: File[]) => void;
 }
 
-const Dropzone = ({ isUploading, setFiles }: IDropzone) => {
+const Dropzone = ({ isUploading, setFiles }: IDropzone): React.ReactNode => {
   const { classes } = useStyles();
   const openRef = useRef<() => void>();
   return (
     <div className={classes.wrapper}>
       <MantineDropzone
         // maxSize={}
-        onReject={(e: any) => {
+        onReject={(e: any) : void => {
           toast.error(e[0].errors[0].message);
         }}
         disabled={isUploading}

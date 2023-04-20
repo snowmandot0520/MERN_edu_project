@@ -14,7 +14,7 @@ import { NavLink } from 'react-router-dom';
 import { POST } from 'src/services/HttpService';
 import * as yup from 'yup';
 
-import { routes as routes_config } from 'src/config/routes_config';
+import { routes as routesConfig } from 'src/config/routes_config';
 import { getApiErrorMessage } from 'src/utils/commonFunction';
 import toast from 'src/utils/Toast';
 
@@ -78,7 +78,7 @@ const SignUpForm = () => {
         Sign up
       </Title>
       <Text color="dimmed" size="sm" align="center" mt={5}>
-        You have an account already? <NavLink to={routes_config.signIn.path_string()}>Sign in</NavLink>
+        You have an account already? <NavLink to={routesConfig.signIn.path_string()}>Sign in</NavLink>
       </Text>
       <Paper withBorder={true} shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={form.onSubmit((values) => signUp(values))}>

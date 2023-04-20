@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
 
 import {
     Box,
@@ -17,7 +17,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from 'src/hooks/useAuth';
 
 import ActionAvatar from 'src/components/NavBar/ActionAvatar';
-import { routes as routes_config } from 'src/config/routes_config';
+import { routes as routesConfig } from 'src/config/routes_config';
 
 
 
@@ -109,46 +109,51 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const NavBar = () => {
+const NavBar = () : React.ReactNode => {
   const [opened, toggleOpened] = useDisclosure(false);
   const { classes, cx } = useStyles();
   const auth = useAuth();
 
   const authenticatedLinks = [
     {
-      link: routes_config.home.path_string(),
+      link: routesConfig.home.path_string(),
       label: 'Home',
+      id: 'home'
     },
     {
       component: <ActionAvatar />,
+      id: 'action'
     },
   ];
 
 
   const unauthenticatedLinks = [
     {
-      link: routes_config.home.path_string(),
+      link: routesConfig.home.path_string(),
       label: 'Home',
-      component: null
+      component: null,
+      id: 'home'
     },
     {
-      link: routes_config.signIn.path_string(),
+      link: routesConfig.signIn.path_string(),
       label: 'Sign in',
-      component: null
+      component: null,
+      id: 'signIn'
     },
     {
-      link: routes_config.signUp.path_string(),
+      link: routesConfig.signUp.path_string(),
       label: 'Sign up',
-      component: null
+      component: null,
+      id: 'signUp'
     }];
 
 
   const items = (
-    <>
-      {(auth ? authenticatedLinks : unauthenticatedLinks)?.map((link, i) => {
+  
+      (auth ? authenticatedLinks : unauthenticatedLinks)?.map((link) => {
         if (link?.component) {
           return (
-            <Box pl={5} py={15} key={i}>
+            <Box pl={5} py={15} key={link.id}>
               {link.component}
             </Box>
           );
@@ -165,8 +170,7 @@ const NavBar = () => {
             {link.label}
           </NavLink>
         );
-      })}
-    </>
+      })
   );
   
   return (
