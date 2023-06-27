@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router';
 
 
 import { FallbackPageWrapper } from 'src/components/FallbackPageWrapper';
-import { InputWithButton } from 'src/components/InputWithButton';
+import { UrlForm } from 'src/components/UrlForm';
 import Layout from 'src/components/Layout';
 import { routes as routesConfig } from 'src/config/routes_config';
 
@@ -133,7 +133,7 @@ const Home = () => {
               </Group>
             </div>
             <Group className={classes.image} align="center">
-              <InputWithButton />
+              <UrlForm />
             </Group>
           </div>
         </Container>

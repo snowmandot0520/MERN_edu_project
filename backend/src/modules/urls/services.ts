@@ -30,10 +30,8 @@ const create = async ({ originalUrl }) => {
   await urls.insertOne(url);
 
   return {
-    url: {
-      shortUrl
-    },
-  };
+    shortUrl
+  }
 };
 
 const get = async (urlId: string) => {

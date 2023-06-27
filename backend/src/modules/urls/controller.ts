@@ -22,7 +22,7 @@ export const createShortUrl = async (req: Request, res: Response) => {
 
     const data = await create({ originalUrl });
 
-    return sendResponse(res, 201, { ...data }, reponseMessages.genericSuccess);
+    return sendResponse(res, 201, data, reponseMessages.genericSuccess);
   } catch (err) {
     return handleCustomError(res, err);
   }
