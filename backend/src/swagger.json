@@ -130,6 +130,24 @@
                     }
                 }
             }
+        },
+        "/url/{urlId}": {
+            "parameters": [
+                {
+                    "name": "urlId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of url that we want to find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "summary": "Get short by given ID",
+                "tags": [
+                    "Url"
+                ],
+                "responses": {}
+            }
         }
     },
     "definitions": {

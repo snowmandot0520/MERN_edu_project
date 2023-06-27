@@ -36,4 +36,20 @@ const create = async ({ originalUrl }) => {
   };
 };
 
-export { create };
+const get = async (urlId: string) => {
+  const res = await urls.findOne({ urlId });
+
+  if (!res) {
+    const msg = 'Short URL not found in records';
+    const error = new Error(msg);
+    error['code'] = 404;
+    error['message'] = msg;
+    throw error;
+  }
+
+  await urls.findOneAndUpdate({ urlId }, { $inc: { clicks: 1 } } );
+
+  return res.originalUrl;
+};
+
+export { create, get };
