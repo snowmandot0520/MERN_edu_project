@@ -17,3 +17,4 @@ export const ACCESS_TOKEN_EXPIRY = process.env.ACCESS_TOKEN_EXPIRY;
 export const ACCESS_TOKEN_ALGO = process.env.ACCESS_TOKEN_ALGO;
 export const REFRESH_TOKEN_EXPIRY = process.env.REFRESH_TOKEN_EXPIRY;
 export const REFRESH_TOKEN_ALGO = process.env.REFRESH_TOKEN_ALGO;
+export const BASE_URL_SHORTNER = process.env.BASE_URL_SHORTNER;

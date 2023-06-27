@@ -1,6 +1,7 @@
 import { generateHash } from './hash-payload';
 import { sendResponse } from './send-response';
 import { handleCustomError, extractErrors } from './handle-custom-errors';
+import { validateUrl } from './url';
 import {
   createAccessToken,
   decryptAccessToken,
@@ -17,4 +18,5 @@ export {
   decryptAccessToken,
   createaRefreshToken,
   decryptRefreshToken,
+  validateUrl
 };
