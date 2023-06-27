@@ -73,3 +73,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+.link-find-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

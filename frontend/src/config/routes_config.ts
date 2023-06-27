@@ -55,6 +55,17 @@ export const routes: IRoutesConfig = {
     isStatic: false,
     component: undefined
   },
+  urlLink: {
+    id: 'urlLink',
+    name: 'UrlLink',
+    description: 'UrlLink',
+    path: '/:urlId',
+    path_string: (urlId) => `/${urlId}`,
+    exact: true,
+    isPrivate: false,
+    isStatic: true,
+    component: undefined
+  },
   notFound: {
     id: 'notFound',
     name: '404',

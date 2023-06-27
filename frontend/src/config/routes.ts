@@ -19,6 +19,10 @@ export const routes: IRoutesConfig = {
     ...routesConfig.home,
     component: lazy(() => import('../pages/Home'))
   },
+  [routesConfig.urlLink.id]: {
+    ...routesConfig.urlLink,
+    component: lazy(() => import('../pages/UrlLinks'))
+  },
   [routesConfig.notFound.id]: {
     ...routesConfig.notFound,
     component: lazy(() => import('../pages/NotFound'))
