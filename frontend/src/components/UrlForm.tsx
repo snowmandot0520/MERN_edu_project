@@ -91,7 +91,7 @@ export const UrlForm: React.FC = () => {
     }, [isSafariBrowser]);
 
     useEffect(() => () => {
-        // clipboard?.current?.destroy();
+        clipboard?.current?.destroy();
     }, []);
 
     return (
