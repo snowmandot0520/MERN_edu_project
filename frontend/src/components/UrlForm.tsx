@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 
 import { ActionIcon, TextInput, TextInputProps, useMantineTheme } from '@mantine/core';
 import { TbCopy } from 'react-icons/tb';
 import { useForm, yupResolver } from '@mantine/form';
+import ClipboardJS from 'clipboard';
+
 import { POST } from 'src/services/HttpService';
 import { isValidURL } from 'src/utils/commonFunction';
 import * as yup from 'yup';
 
 import { getApiErrorMessage } from 'src/utils/commonFunction';
+import { isSafari } from 'src/utils/DeviceDetect';
 import toast from 'src/utils/Toast';
 
 export const UrlForm: React.FC = (props: TextInputProps) => {
     const theme = useMantineTheme();
 
     const [isLoading, setLoading] = useState(false);
+    const isSafariBrowser: boolean = useMemo(() => isSafari(), []);
+    const clipboard = useRef<ClipboardJS | null>(null);
 
     const validationSchema = yup.object().shape({
         originalUrl: yup.string()
@@ -45,14 +50,16 @@ export const UrlForm: React.FC = (props: TextInputProps) => {
 
             const shortUrl = data?.data?.data?.shortUrl;
 
-            navigator.clipboard
-                .writeText(shortUrl)
-                .then(() => {
-                    toast.success('Copied shortlink to clipboard!');
-                    form.reset();
-                }).catch(() => {
-                    toast.error('Error in Copy shortlink');
-                });
+            if (!isSafariBrowser) {
+                navigator.clipboard
+                    .writeText(shortUrl)
+                    .then(() => {
+                        toast.success('Copied shortlink to clipboard!');
+                        form.reset();
+                    }).catch(() => {
+                        toast.error('Error in Copy shortlink');
+                    });
+            }
         } catch (error) {
             const message = getApiErrorMessage(error);
             message && toast.error(message);
@@ -61,6 +68,30 @@ export const UrlForm: React.FC = (props: TextInputProps) => {
         }
     };
 
+    useEffect(() => {
+        if (isSafariBrowser && !clipboard.current) {
+            clipboard.current = new ClipboardJS('.btn');
+
+            clipboard.current?.on('success', (e) => {
+                console.info('Action:', e.action);
+                console.info('Text:', e.text);
+                console.info('Trigger:', e.trigger);
+                toast.success('Copied shortlink to clipboard!');
+            });
+
+            clipboard.current?.on('error', (e) => {
+                console.info('Action:', e.action);
+                console.info('Text:', e.text);
+                console.info('Trigger:', e.trigger);
+                toast.error('Error in Copy clipboard safari');
+            });
+        }
+    }, [isSafariBrowser]);
+
+    useEffect(() => () => {
+        clipboard?.current?.destroy();
+    }, []);
+
     return (
         <form onSubmit={form.onSubmit((values) => onShortURL(values))}>
             <TextInput
@@ -68,7 +99,7 @@ export const UrlForm: React.FC = (props: TextInputProps) => {
                 radius="xl"
                 size="lg"
                 rightSection={
-                    <ActionIcon type='submit' size={40} radius="xl" color={theme.primaryColor} variant="filled" loading={isLoading} disabled={isLoading}>
+                    <ActionIcon type='submit' data-clipboard-text="asif" className="share-link-url" size={40} radius="xl" color={theme.primaryColor} variant="filled" loading={isLoading} disabled={isLoading}>
                         <TbCopy size="1.1rem" />
                     </ActionIcon>
                 }
