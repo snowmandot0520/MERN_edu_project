@@ -17,10 +17,11 @@ export const createShortUrl = async (req: Request, res: Response) => {
       const extractedErrors = extractErrors(errors);
       return sendResponse(res, 422, {}, { errors: extractedErrors });
     }
-
+    
     const { originalUrl } = req.body;
+    const baseURL = req.get('origin');
 
-    const data = await create({ originalUrl });
+    const data = await create({ originalUrl, baseURL });
 
     return sendResponse(res, 201, data, reponseMessages.genericSuccess);
   } catch (err) {

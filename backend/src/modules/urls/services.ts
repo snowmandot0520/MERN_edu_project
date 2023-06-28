@@ -2,11 +2,10 @@ import shortid from 'shortid';
 import Urls from './model';
 import db from '../../db';
 import { validateUrl } from '../../utils';
-import { BASE_URL_SHORTNER } from '../../config/env';
 
 const urls = db.collection('urls');
 
-const create = async ({ originalUrl }) => {
+const create = async ({ originalUrl, baseURL }) => {
 
   if (!validateUrl(originalUrl)) {
       const msg = 'Invalid URL';
@@ -18,7 +17,7 @@ const create = async ({ originalUrl }) => {
 
   const urlId = shortid.generate();
 
-  const shortUrl = `${BASE_URL_SHORTNER}/${urlId}`;
+  const shortUrl = `${baseURL}/${urlId}`;
 
   const url = new Urls({
     urlId,
