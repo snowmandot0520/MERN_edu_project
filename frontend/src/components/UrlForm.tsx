@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 
-import { ActionIcon, TextInput, TextInputProps, useMantineTheme } from '@mantine/core';
+import { ActionIcon, TextInput, useMantineTheme } from '@mantine/core';
 import { TbCopy } from 'react-icons/tb';
 import { useForm, yupResolver } from '@mantine/form';
 import ClipboardJS from 'clipboard';
@@ -13,7 +13,7 @@ import { getApiErrorMessage } from 'src/utils/commonFunction';
 import { isSafari } from 'src/utils/DeviceDetect';
 import toast from 'src/utils/Toast';
 
-export const UrlForm: React.FC = (props: TextInputProps) => {
+export const UrlForm: React.FC = () => {
     const theme = useMantineTheme();
 
     const [isLoading, setLoading] = useState(false);
@@ -70,6 +70,7 @@ export const UrlForm: React.FC = (props: TextInputProps) => {
 
     useEffect(() => {
         if (isSafariBrowser && !clipboard.current) {
+            window.console.log('set clipboard')
             clipboard.current = new ClipboardJS('.btn');
 
             clipboard.current?.on('success', (e) => {
@@ -85,11 +86,12 @@ export const UrlForm: React.FC = (props: TextInputProps) => {
                 console.info('Trigger:', e.trigger);
                 toast.error('Error in Copy clipboard safari');
             });
+            window.console.log('ref clipboard in ', clipboard)
         }
     }, [isSafariBrowser]);
 
     useEffect(() => () => {
-        clipboard?.current?.destroy();
+        // clipboard?.current?.destroy();
     }, []);
 
     return (
