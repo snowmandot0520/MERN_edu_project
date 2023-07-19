@@ -101,6 +101,53 @@
                 ],
                 "responses": {}
             }
+        },
+        "/url/short": {
+            "post": {
+                "tags": [
+                    "Url"
+                ],
+                "description": "Create new short url in system",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "body",
+                        "description": "Url that we want to short",
+                        "schema": {
+                            "$ref": "#/definitions/Url"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New short Url is created",
+                        "schema": {
+                            "$ref": "#/definitions/Url"
+                        }
+                    }
+                }
+            }
+        },
+        "/url/{urlId}": {
+            "parameters": [
+                {
+                    "name": "urlId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of url that we want to find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "summary": "Get short by given ID",
+                "tags": [
+                    "Url"
+                ],
+                "responses": {}
+            }
         }
     },
     "definitions": {
@@ -141,6 +188,17 @@
                     "required": true
                 },
                 "password": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "Url": {
+            "required": [
+                "originalUrl"
+            ],
+            "properties": {
+                "originalUrl": {
                     "type": "string",
                     "required": true
                 }
