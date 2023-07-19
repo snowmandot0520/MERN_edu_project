@@ -29,7 +29,9 @@ app.get('/', function (req, res) {
     });
 });
 app.use(routes_1.default);
-app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
+app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default, {
+    customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css'
+}));
 app.listen(env_1.PORT, function () {
     console.log("\u26A1\uFE0F[server]: Server is running at ".concat(env_1.IS_DEVELOPMENT ? 'http://localhost:' : '').concat(env_1.PORT));
 });
