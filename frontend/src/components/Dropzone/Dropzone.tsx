@@ -35,7 +35,7 @@ interface IDropzone {
   setFiles: (files: File[]) => void;
 }
 
-const Dropzone = ({ isUploading, setFiles }: IDropzone): React.ReactNode => {
+const Dropzone = ({ isUploading, setFiles }: IDropzone) => {
   const { classes } = useStyles();
   const openRef = useRef<() => void>();
   return (

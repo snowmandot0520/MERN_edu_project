@@ -26,7 +26,7 @@ const HEADER_HEIGHT = 60;
 type NavLink = {
   link?: string;
   label?: string;
-  component?: ReactNode;
+  component?: React.ComponentType<any>;
   action?: () => Promise<void>;
 };
 
@@ -109,7 +109,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const NavBar = () : React.ReactNode => {
+const NavBar = () => {
   const [opened, toggleOpened] = useDisclosure(false);
   const { classes, cx } = useStyles();
   const auth = useAuth();
