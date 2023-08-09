@@ -18,7 +18,7 @@ const UrlLinks = () => {
     const fetchLink = async (urlId: string) => {
         setLoading(true);
         try {
-            const data = await GET({ subUrl: `/url/${urlId}` });
+            const data = await GET({ subUrl: `/urls/${urlId}` });
             const originalUrl = data.data.data.originalUrl;
 
             window.location.href = originalUrl;

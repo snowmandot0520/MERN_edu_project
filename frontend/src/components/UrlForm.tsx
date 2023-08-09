@@ -42,7 +42,7 @@ export const UrlForm: React.FC = () => {
         const { originalUrl } = values;
         try {
             const data = await POST({
-                subUrl: '/url/short',
+                subUrl: '/urls/short',
                 data: {
                     originalUrl,
                 },
