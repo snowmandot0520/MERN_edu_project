@@ -5,7 +5,7 @@ import { validateUrl } from '../../utils';
 
 const urls = db.collection('urls');
 
-const create = async ({ originalUrl, baseURL }) => {
+const create = async ({ originalUrl, baseURL, userId }) => {
 
   if (!validateUrl(originalUrl)) {
       const msg = 'Invalid URL';
@@ -23,7 +23,8 @@ const create = async ({ originalUrl, baseURL }) => {
     urlId,
     originalUrl,
     shortUrl,
-    date:new Date()
+    date: new Date(),
+    userId
   });
 
   await urls.insertOne(url);

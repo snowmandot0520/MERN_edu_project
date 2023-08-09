@@ -1,11 +1,13 @@
 import express from 'express';
 
-import { createShortUrl, getShortUrl } from './controller';
+import { createShortUrl, getShortUrl, getAllShortUrlsByUser } from './controller';
 import { validateCreateShortUrlRequest } from './validators';
+import { isAuthenticated } from '../../middlewares/authenticated';
 
 const router = express.Router();
 
-router.post('/url/short', validateCreateShortUrlRequest(), createShortUrl);
-router.get('/url/:urlId', getShortUrl);
+router.get('/urls/list',isAuthenticated, getAllShortUrlsByUser);
+router.post('/urls/short', validateCreateShortUrlRequest(), createShortUrl);
+router.get('/urls/:urlId', getShortUrl);
 
 export default router;

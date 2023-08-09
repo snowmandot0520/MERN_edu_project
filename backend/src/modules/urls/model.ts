@@ -25,6 +25,12 @@ const urlSchema = new Schema({
     type: String,
     default: Date.now,
   },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Users',
+    required: false,
+    default: null
+  }
 });
 
 const Urls = mongoose.model('Urls', urlSchema);
