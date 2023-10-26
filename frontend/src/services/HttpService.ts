@@ -2,6 +2,7 @@ import axios, { Method } from 'axios';
 
 import { API_URL } from 'src/config/env';
 // import { errorToast } from '../utils/Toast'
+import Storage from 'src/services/Storage';
 
 const codes = {
   UNAUTHORIZED: 401,
@@ -78,7 +79,16 @@ export const contentTypes = {
   }
 };
 
-const getCommonHeaders = () => ({
-    ...contentTypes.json
-    // Authorization: `JWT ${token}`,
-  });
+const getCommonHeaders = () => {
+  const authHeader : any = {};
+  const token = Storage.getItem('token');
+
+  if(token){
+    authHeader['Authorization'] = `JWT ${token}`;
+  }
+
+  return {
+    ...contentTypes.json,
+    ...authHeader
+  }
+};
