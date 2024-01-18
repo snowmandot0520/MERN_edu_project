@@ -2,14 +2,18 @@ import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 
 import { create, get } from './services';
-import { reponseMessages } from '../../constants/response-messages';
-import { sendResponse } from '../../utils/send-response';
+import { reponseMessages } from '../../constants/responseMessages';
+import { sendResponse } from '../../utils/sendResponse';
 import {
   handleCustomError,
   extractErrors,
-} from '../../utils/handle-custom-errors';
+} from '../../utils/handleCustomErrors';
 
-export const createShortUrl = async (req: Request, res: Response) => {
+interface IUserRequest extends Request {
+  user?: any
+}
+
+export const createShortUrl = async (req: IUserRequest, res: Response) => {
   try {
     const errors = validationResult(req);
 
@@ -21,6 +25,7 @@ export const createShortUrl = async (req: Request, res: Response) => {
     const { originalUrl } = req.body;
     const baseURL = req.get('origin');
     const userId = '';
+    console.log('user', req?.user as any)
 
     const data = await create({ originalUrl, baseURL, userId });
 

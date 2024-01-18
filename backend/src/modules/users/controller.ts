@@ -2,12 +2,12 @@ import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 
 import { create, login, user } from './services';
-import { reponseMessages } from '../../constants/response-messages';
-import { sendResponse } from '../../utils/send-response';
+import { reponseMessages } from '../../constants/responseMessages';
+import { sendResponse } from '../../utils/sendResponse';
 import {
   handleCustomError,
   extractErrors,
-} from '../../utils/handle-custom-errors';
+} from '../../utils/handleCustomErrors';
 
 
 export const createNewUser = async (req: Request, res: Response) => {

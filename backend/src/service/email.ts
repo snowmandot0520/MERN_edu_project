@@ -8,7 +8,7 @@ const client = new MessageClient({
 
 export const sendMail = async ({
   to,
-  from = 'Asif.V@simformsolutions.com',
+  from,
   plain,
   html,
   subject,

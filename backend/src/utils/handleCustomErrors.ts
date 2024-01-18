@@ -1,5 +1,6 @@
-import { reponseMessages } from '../constants/response-messages';
-import { sendResponse } from './send-response';
+import { reponseMessages } from '../constants/responseMessages';
+import { sendResponse } from './sendResponse';
+import { HttpStatusCode } from './httpStatusCode';
 
 
 /**
@@ -14,25 +15,25 @@ import { sendResponse } from './send-response';
  * @returns {object} error the error object
  */
 export const handleCustomError = (res, error) => {
-  if (error.code === 400) {
+  if (error.code === HttpStatusCode.NotFound) {
     return sendResponse(res, error.code, {}, error.message);
   }
-  if (error.code === 401) {
+  if (error.code === HttpStatusCode.Unauthorized) {
     return sendResponse(res, error.code, {}, error.message);
   }
-  if (error.code === 403) {
+  if (error.code === HttpStatusCode.Forbidden) {
     return sendResponse(res, error.code, {}, error.message);
   }
-  if (error.code === 404) {
+  if (error.code === HttpStatusCode.NotFound) {
     return sendResponse(res, error.code, {}, error.message);
   }
-  if (error.code === 409) {
+  if (error.code === HttpStatusCode.Conflict) {
     return sendResponse(res, error.code, {}, error.message);
   }
-  if (error.code === 422) {
+  if (error.code === HttpStatusCode.UnprocessableEntity) {
     return sendResponse(res, error.code, {}, error.message);
   }
-  return sendResponse(res, 500, error, reponseMessages.genericError);
+  return sendResponse(res, HttpStatusCode.InternalServerError, error, reponseMessages.genericError);
 };
 
 /**

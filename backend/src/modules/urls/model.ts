@@ -27,7 +27,6 @@ const urlSchema = new Schema({
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Users',
     required: false,
     default: null
   }

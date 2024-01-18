@@ -7,7 +7,7 @@ import { isAuthenticated } from '../../middlewares/authenticated';
 const router = express.Router();
 
 router.get('/urls/list',isAuthenticated, getAllShortUrlsByUser);
-router.post('/urls/short', validateCreateShortUrlRequest(), createShortUrl);
+router.post('/urls/short', validateCreateShortUrlRequest(), isAuthenticated, createShortUrl);
 router.get('/urls/:urlId', getShortUrl);
 
 export default router;
