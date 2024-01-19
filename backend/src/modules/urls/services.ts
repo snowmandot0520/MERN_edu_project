@@ -50,4 +50,18 @@ const get = async (urlId: string) => {
   return res.originalUrl;
 };
 
-export { create, get };
+const getAll = async (userId: string) => {
+  const res = await urls.find({ userId });
+
+  if (!res) {
+    const msg = 'No data available';
+    const error = new Error(msg);
+    error['code'] = 404;
+    error['message'] = msg;
+    throw error;
+  }
+
+  return res;
+};
+
+export { create, get, getAll };
