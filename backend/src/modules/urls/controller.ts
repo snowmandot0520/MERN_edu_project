@@ -24,8 +24,8 @@ export const createShortUrl = async (req: IUserRequest, res: Response) => {
     
     const { originalUrl } = req.body;
     const baseURL = req.get('origin');
-    const userId = '';
-    console.log('user', req?.user as any)
+    const userId = (req?.user as any)?.id || '';
+    console.log('userId :: ', userId)
 
     const data = await create({ originalUrl, baseURL, userId });
 

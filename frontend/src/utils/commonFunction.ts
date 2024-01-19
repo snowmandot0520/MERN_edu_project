@@ -1,4 +1,4 @@
-export const getApiErrorMessage = (error: any | {[key: string]: string}) : string => error?.response?.data?.message;
+export const getApiErrorMessage = (error: any | {[key: string]: string}, key?: string) : string => error?.response?.data?.message?.errors?.[0]?.[key as string] || error?.response?.data?.message;
 
 export const byteStringToHumanSizeString = (bytes: string): string => {
   const bytesNumber = parseInt(bytes);

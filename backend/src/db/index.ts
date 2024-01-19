@@ -7,7 +7,7 @@ const URI = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${CLUSTER_URL}?retryWri
 
 const client = new MongoClient(IS_DEVELOPMENT ? `mongodb://localhost:27017/${DB_NAME}` : URI);
 
-console.log(`⚡️[App runing in]: ${IS_DEVELOPMENT} mode`);
+console.log(`⚡️[App runing in]: ${IS_DEVELOPMENT ? 'Development' : ' PROD'} mode`);
 
 client.connect((error) => {
     if (error) {

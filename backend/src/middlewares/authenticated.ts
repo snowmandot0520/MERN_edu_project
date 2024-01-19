@@ -3,8 +3,8 @@ import { sendResponse, decryptAccessToken, HttpStatusCode } from '../utils'
 const whiteListEndpoints = ["/urls/short"]
 
 export const isAuthenticated = async (req, res, next) => {
-  const token = req.header('token');
-
+  const token = req.header('Authorization');
+  
   try {
     if (!token) {
         if(whiteListEndpoints.includes(req.url)) {
@@ -17,8 +17,8 @@ export const isAuthenticated = async (req, res, next) => {
 
     // if everything is good, save to request for use in other routes
     req.user = decoded;
-    next(req);
 
+    next();
   } catch (err) {
     if (err?.['name'] === 'TokenExpiredError') {
       return sendResponse(res, HttpStatusCode.Unauthorized, { tokenExpired: 1 }, 'Token Expired');

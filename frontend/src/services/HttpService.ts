@@ -84,7 +84,7 @@ const getCommonHeaders = () => {
   const token = Storage.getItem('token');
 
   if(token){
-    authHeader['Authorization'] = `JWT ${token}`;
+    authHeader['Authorization'] = `${token}`;
   }
 
   return {

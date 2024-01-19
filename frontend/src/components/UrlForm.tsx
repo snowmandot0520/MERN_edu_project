@@ -61,8 +61,10 @@ export const UrlForm: React.FC = () => {
                     });
             }
         } catch (error) {
-            const message = getApiErrorMessage(error);
-            message && toast.error(message);
+            const message = getApiErrorMessage(error, 'originalUrl');
+            if(message && typeof message ==='string') {
+                toast.error(message);
+            }
         } finally {
             setLoading(false);
         }

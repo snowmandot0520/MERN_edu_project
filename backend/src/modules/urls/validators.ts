@@ -2,8 +2,7 @@ import { body } from 'express-validator';
 
 const validateCreateShortUrlRequest = () => {
   return [
-    body('originalUrl', 'Original Url is required')
-      .isString()
+    body('originalUrl', 'Original Url is required').isString()
   ];
 };
 
