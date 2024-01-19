@@ -50,9 +50,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getUser = exports.loginUser = exports.createNewUser = void 0;
 var express_validator_1 = require("express-validator");
 var services_1 = require("./services");
-var response_messages_1 = require("../../constants/response-messages");
-var send_response_1 = require("../../utils/send-response");
-var handle_custom_errors_1 = require("../../utils/handle-custom-errors");
+var responseMessages_1 = require("../../constants/responseMessages");
+var sendResponse_1 = require("../../utils/sendResponse");
+var handleCustomErrors_1 = require("../../utils/handleCustomErrors");
 var createNewUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var errors, extractedErrors, _a, email, firstName, lastName, password, data, err_1;
     return __generator(this, function (_b) {
@@ -61,8 +61,8 @@ var createNewUser = function (req, res) { return __awaiter(void 0, void 0, void 
                 _b.trys.push([0, 2, , 3]);
                 errors = (0, express_validator_1.validationResult)(req);
                 if (!errors.isEmpty()) {
-                    extractedErrors = (0, handle_custom_errors_1.extractErrors)(errors);
-                    return [2 /*return*/, (0, send_response_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
+                    extractedErrors = (0, handleCustomErrors_1.extractErrors)(errors);
+                    return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
                 }
                 _a = req.body, email = _a.email, firstName = _a.firstName, lastName = _a.lastName, password = _a.password;
                 return [4 /*yield*/, (0, services_1.create)({
@@ -73,10 +73,10 @@ var createNewUser = function (req, res) { return __awaiter(void 0, void 0, void 
                     })];
             case 1:
                 data = _b.sent();
-                return [2 /*return*/, (0, send_response_1.sendResponse)(res, 201, __assign({}, data), response_messages_1.reponseMessages.genericSuccess)];
+                return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 201, __assign({}, data), responseMessages_1.reponseMessages.genericSuccess)];
             case 2:
                 err_1 = _b.sent();
-                return [2 /*return*/, (0, handle_custom_errors_1.handleCustomError)(res, err_1)];
+                return [2 /*return*/, (0, handleCustomErrors_1.handleCustomError)(res, err_1)];
             case 3: return [2 /*return*/];
         }
     });
@@ -90,17 +90,17 @@ var loginUser = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 _b.trys.push([0, 2, , 3]);
                 errors = (0, express_validator_1.validationResult)(req);
                 if (!errors.isEmpty()) {
-                    extractedErrors = (0, handle_custom_errors_1.extractErrors)(errors);
-                    return [2 /*return*/, (0, send_response_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
+                    extractedErrors = (0, handleCustomErrors_1.extractErrors)(errors);
+                    return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
                 }
                 _a = req.body, email = _a.email, password = _a.password;
                 return [4 /*yield*/, (0, services_1.login)({ email: email, password: password })];
             case 1:
                 data = _b.sent();
-                return [2 /*return*/, (0, send_response_1.sendResponse)(res, 200, __assign({}, data), response_messages_1.reponseMessages.genericSuccess)];
+                return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 200, __assign({}, data), responseMessages_1.reponseMessages.genericSuccess)];
             case 2:
                 err_2 = _b.sent();
-                return [2 /*return*/, (0, handle_custom_errors_1.handleCustomError)(res, err_2)];
+                return [2 /*return*/, (0, handleCustomErrors_1.handleCustomError)(res, err_2)];
             case 3: return [2 /*return*/];
         }
     });
@@ -114,18 +114,18 @@ var getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, fun
                 _a.trys.push([0, 2, , 3]);
                 errors = (0, express_validator_1.validationResult)(req);
                 if (!errors.isEmpty()) {
-                    extractedErrors = (0, handle_custom_errors_1.extractErrors)(errors);
-                    return [2 /*return*/, (0, send_response_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
+                    extractedErrors = (0, handleCustomErrors_1.extractErrors)(errors);
+                    return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
                 }
                 userId = req.params.userId;
                 console.log("userId", userId);
                 return [4 /*yield*/, (0, services_1.user)(userId)];
             case 1:
                 data = _a.sent();
-                return [2 /*return*/, (0, send_response_1.sendResponse)(res, 200, __assign({}, data), response_messages_1.reponseMessages.genericSuccess)];
+                return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 200, __assign({}, data), responseMessages_1.reponseMessages.genericSuccess)];
             case 2:
                 err_3 = _a.sent();
-                return [2 /*return*/, (0, handle_custom_errors_1.handleCustomError)(res, err_3)];
+                return [2 /*return*/, (0, handleCustomErrors_1.handleCustomError)(res, err_3)];
             case 3: return [2 /*return*/];
         }
     });

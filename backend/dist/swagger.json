@@ -9,6 +9,10 @@
         {
             "name": "Users",
             "description": "API for users in the system"
+        },
+        {
+            "name": "Urls",
+            "description": "API for Urls in the system"
         }
     ],
     "schemes": [
@@ -102,10 +106,10 @@
                 "responses": {}
             }
         },
-        "/url/short": {
+        "/urls/short": {
             "post": {
                 "tags": [
-                    "Url"
+                    "Urls"
                 ],
                 "description": "Create new short url in system",
                 "parameters": [
@@ -131,7 +135,7 @@
                 }
             }
         },
-        "/url/{urlId}": {
+        "/urls/{urlId}": {
             "parameters": [
                 {
                     "name": "urlId",
@@ -144,7 +148,25 @@
             "get": {
                 "summary": "Get short by given ID",
                 "tags": [
-                    "Url"
+                    "Urls"
+                ],
+                "responses": {}
+            }
+        },
+        "/urls/list": {
+            "parameters": [
+                {
+                    "name": "urlId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of url that we want to find",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "summary": "Get all short url list by user",
+                "tags": [
+                    "Urls"
                 ],
                 "responses": {}
             }

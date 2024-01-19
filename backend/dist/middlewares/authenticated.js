@@ -38,13 +38,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isAuthenticated = void 0;
 var utils_1 = require("../utils");
+var whiteListEndpoints = ["/urls/short"];
 var isAuthenticated = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var token, decoded;
     return __generator(this, function (_a) {
-        token = req.header('token');
+        token = req.header('Authorization');
         try {
             if (!token) {
-                return [2 /*return*/, (0, utils_1.sendResponse)(res, 401, { tokenExpired: 0 }, 'Failed to Authenticate')];
+                if (whiteListEndpoints.includes(req.url)) {
+                    return [2 /*return*/, next()];
+                }
+                return [2 /*return*/, (0, utils_1.sendResponse)(res, utils_1.HttpStatusCode.Unauthorized, { tokenExpired: 0 }, 'Failed to Authenticate')];
             }
             decoded = (0, utils_1.decryptAccessToken)(token);
             // if everything is good, save to request for use in other routes
@@ -53,10 +57,10 @@ var isAuthenticated = function (req, res, next) { return __awaiter(void 0, void 
         }
         catch (err) {
             if ((err === null || err === void 0 ? void 0 : err['name']) === 'TokenExpiredError') {
-                return [2 /*return*/, (0, utils_1.sendResponse)(res, 401, { tokenExpired: 1 }, 'Token Expired')];
+                return [2 /*return*/, (0, utils_1.sendResponse)(res, utils_1.HttpStatusCode.Unauthorized, { tokenExpired: 1 }, 'Token Expired')];
             }
             if ((err === null || err === void 0 ? void 0 : err['name']) === 'JsonWebTokenError') {
-                return [2 /*return*/, (0, utils_1.sendResponse)(res, 401, { tokenExpired: 0 }, 'Corrupt Token')];
+                return [2 /*return*/, (0, utils_1.sendResponse)(res, utils_1.HttpStatusCode.Unauthorized, { tokenExpired: 0 }, 'Corrupt Token')];
             }
         }
         return [2 /*return*/, 0];

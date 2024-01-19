@@ -44,11 +44,11 @@ var client = new cloudmailin_1.MessageClient({
     apiKey: env_1.EMAIL_API_KEY,
 });
 var sendMail = function (_a) {
-    var to = _a.to, _b = _a.from, from = _b === void 0 ? 'Asif.V@simformsolutions.com' : _b, plain = _a.plain, html = _a.html, subject = _a.subject;
+    var to = _a.to, from = _a.from, plain = _a.plain, html = _a.html, subject = _a.subject;
     return __awaiter(void 0, void 0, void 0, function () {
         var response;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
+        return __generator(this, function (_b) {
+            switch (_b.label) {
                 case 0: return [4 /*yield*/, client.sendMessage({
                         to: to,
                         from: from,
@@ -57,7 +57,7 @@ var sendMail = function (_a) {
                         subject: subject,
                     })];
                 case 1:
-                    response = _c.sent();
+                    response = _b.sent();
                     console.log("\u26A1\uFE0F[Send Mail]: response ".concat(JSON.stringify(response, null, 2)));
                     return [2 /*return*/, response];
             }

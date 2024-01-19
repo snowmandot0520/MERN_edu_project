@@ -39,14 +39,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.get = exports.create = void 0;
+exports.getAll = exports.get = exports.create = void 0;
 var shortid_1 = __importDefault(require("shortid"));
 var model_1 = __importDefault(require("./model"));
 var db_1 = __importDefault(require("../../db"));
 var utils_1 = require("../../utils");
 var urls = db_1.default.collection('urls');
 var create = function (_a) {
-    var originalUrl = _a.originalUrl, baseURL = _a.baseURL;
+    var originalUrl = _a.originalUrl, baseURL = _a.baseURL, userId = _a.userId;
     return __awaiter(void 0, void 0, void 0, function () {
         var msg, error, urlId, shortUrl, url;
         return __generator(this, function (_b) {
@@ -65,7 +65,8 @@ var create = function (_a) {
                         urlId: urlId,
                         originalUrl: originalUrl,
                         shortUrl: shortUrl,
-                        date: new Date()
+                        date: new Date(),
+                        userId: userId
                     });
                     return [4 /*yield*/, urls.insertOne(url)];
                 case 1:
@@ -100,3 +101,22 @@ var get = function (urlId) { return __awaiter(void 0, void 0, void 0, function (
     });
 }); };
 exports.get = get;
+var getAll = function (userId) { return __awaiter(void 0, void 0, void 0, function () {
+    var res, msg, error;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, urls.find({ userId: userId })];
+            case 1:
+                res = _a.sent();
+                if (!res) {
+                    msg = 'No data available';
+                    error = new Error(msg);
+                    error['code'] = 404;
+                    error['message'] = msg;
+                    throw error;
+                }
+                return [2 /*return*/, res];
+        }
+    });
+}); };
+exports.getAll = getAll;

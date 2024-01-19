@@ -28,6 +28,11 @@ var urlSchema = new Schema({
         type: String,
         default: Date.now,
     },
+    userId: {
+        type: mongoose_1.default.Schema.Types.ObjectId,
+        required: false,
+        default: null
+    }
 });
 var Urls = mongoose_1.default.model('Urls', urlSchema);
 exports.default = Urls;

@@ -36,32 +36,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getShortUrl = exports.createShortUrl = void 0;
+exports.getAllShortUrlsByUser = exports.getShortUrl = exports.createShortUrl = void 0;
 var express_validator_1 = require("express-validator");
 var services_1 = require("./services");
-var response_messages_1 = require("../../constants/response-messages");
-var send_response_1 = require("../../utils/send-response");
-var handle_custom_errors_1 = require("../../utils/handle-custom-errors");
+var responseMessages_1 = require("../../constants/responseMessages");
+var sendResponse_1 = require("../../utils/sendResponse");
+var handleCustomErrors_1 = require("../../utils/handleCustomErrors");
 var createShortUrl = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var errors, extractedErrors, originalUrl, baseURL, data, err_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var errors, extractedErrors, originalUrl, baseURL, userId, data, err_1;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 2, , 3]);
                 errors = (0, express_validator_1.validationResult)(req);
                 if (!errors.isEmpty()) {
-                    extractedErrors = (0, handle_custom_errors_1.extractErrors)(errors);
-                    return [2 /*return*/, (0, send_response_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
+                    extractedErrors = (0, handleCustomErrors_1.extractErrors)(errors);
+                    return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
                 }
                 originalUrl = req.body.originalUrl;
                 baseURL = req.get('origin');
-                return [4 /*yield*/, (0, services_1.create)({ originalUrl: originalUrl, baseURL: baseURL })];
+                userId = ((_a = req === null || req === void 0 ? void 0 : req.user) === null || _a === void 0 ? void 0 : _a.id) || '';
+                return [4 /*yield*/, (0, services_1.create)({ originalUrl: originalUrl, baseURL: baseURL, userId: userId })];
             case 1:
-                data = _a.sent();
-                return [2 /*return*/, (0, send_response_1.sendResponse)(res, 201, data, response_messages_1.reponseMessages.genericSuccess)];
+                data = _b.sent();
+                return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 201, data, responseMessages_1.reponseMessages.genericSuccess)];
             case 2:
-                err_1 = _a.sent();
-                return [2 /*return*/, (0, handle_custom_errors_1.handleCustomError)(res, err_1)];
+                err_1 = _b.sent();
+                return [2 /*return*/, (0, handleCustomErrors_1.handleCustomError)(res, err_1)];
             case 3: return [2 /*return*/];
         }
     });
@@ -75,19 +77,44 @@ var getShortUrl = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 _a.trys.push([0, 2, , 3]);
                 errors = (0, express_validator_1.validationResult)(req);
                 if (!errors.isEmpty()) {
-                    extractedErrors = (0, handle_custom_errors_1.extractErrors)(errors);
-                    return [2 /*return*/, (0, send_response_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
+                    extractedErrors = (0, handleCustomErrors_1.extractErrors)(errors);
+                    return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
                 }
                 urlId = req.params.urlId;
                 return [4 /*yield*/, (0, services_1.get)(urlId)];
             case 1:
                 originalUrl = _a.sent();
-                return [2 /*return*/, (0, send_response_1.sendResponse)(res, 201, { originalUrl: originalUrl }, response_messages_1.reponseMessages.genericSuccess)];
+                return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 201, { originalUrl: originalUrl }, responseMessages_1.reponseMessages.genericSuccess)];
             case 2:
                 err_2 = _a.sent();
-                return [2 /*return*/, (0, handle_custom_errors_1.handleCustomError)(res, err_2)];
+                return [2 /*return*/, (0, handleCustomErrors_1.handleCustomError)(res, err_2)];
             case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.getShortUrl = getShortUrl;
+var getAllShortUrlsByUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var errors, extractedErrors, userId, data, err_3;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                errors = (0, express_validator_1.validationResult)(req);
+                if (!errors.isEmpty()) {
+                    extractedErrors = (0, handleCustomErrors_1.extractErrors)(errors);
+                    return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 422, {}, { errors: extractedErrors })];
+                }
+                userId = ((_a = req === null || req === void 0 ? void 0 : req.user) === null || _a === void 0 ? void 0 : _a.id) || '';
+                return [4 /*yield*/, (0, services_1.getAll)(userId)];
+            case 1:
+                data = _b.sent();
+                return [2 /*return*/, (0, sendResponse_1.sendResponse)(res, 201, { data: data }, responseMessages_1.reponseMessages.genericSuccess)];
+            case 2:
+                err_3 = _b.sent();
+                return [2 /*return*/, (0, handleCustomErrors_1.handleCustomError)(res, err_3)];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getAllShortUrlsByUser = getAllShortUrlsByUser;
