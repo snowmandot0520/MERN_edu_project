@@ -353,24 +353,6 @@ validateEnv();
 - [ ] Security review
 - [ ] Ready for production
 
----
 
-## ⚠️ Important Notes
-
-1. **Backup your database** before implementing password hashing changes
-2. **Test thoroughly** in development environment
-3. **Update all existing users** to use new password hashing
-4. **Monitor logs** after deployment
-5. **Have a rollback plan** ready
-
----
-
-## 🆘 Emergency Contacts
-
-- **Security Issues**: [Your Security Team]
-- **Database Issues**: [Your DBA]
-- **Deployment Issues**: [Your DevOps Team]
-
----
 
 *This document should be reviewed and updated regularly.* 
