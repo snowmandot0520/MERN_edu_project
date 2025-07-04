@@ -22,7 +22,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer().array())
 app.use(helmet());  
-app.use(cors());
 app.disable('x-powered-by');
 
 app.get('/', (req: Request, res: Response) => {
