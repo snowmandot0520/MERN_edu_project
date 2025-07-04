@@ -128,7 +128,7 @@ const Home = () => {
                   size="md"
                   className={classes.control}
                 >
-                  Source code
+                  code
                 </Button>
               </Group>
             </div>
