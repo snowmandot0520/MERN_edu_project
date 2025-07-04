@@ -26,6 +26,10 @@ export const isAuthenticated = async (req, res, next) => {
     if (err?.['name'] === 'JsonWebTokenError') {
       return sendResponse(res, HttpStatusCode.Unauthorized, { tokenExpired: 0 }, 'Corrupt Token');
     }
+    if (err?.['name'] === 'validationError') {
+      return sendResponse(res, HttpStatusCode.Unauthorized, { tokenExpired: 0 }, 'validationError');
+    }
+
   }
   return 0;
 };
