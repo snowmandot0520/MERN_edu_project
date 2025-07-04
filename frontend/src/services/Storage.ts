@@ -20,6 +20,7 @@ class StorageService {
   public clearAll = (): void => {
     localStorage.clear();
   };
+  
 }
 
 export default new StorageService();
